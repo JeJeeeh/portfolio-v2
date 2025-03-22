@@ -1,8 +1,10 @@
 "use client";
 
+import HeroBackground from "@/components/hero/HeroBackground";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import Footer from "../features/shared/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,11 +13,19 @@ export default function HomeLayout({
   overlap,
   summary,
   skills,
+  testimonials,
+  work,
+  projects,
+  resume,
 }: Readonly<{
   hero: React.ReactNode;
   overlap: React.ReactNode;
   summary: React.ReactNode;
   skills: React.ReactNode;
+  testimonials: React.ReactNode;
+  work: React.ReactNode;
+  projects: React.ReactNode;
+  resume: React.ReactNode;
 }>) {
   const bgRef = useRef(null);
   const heroRef = useRef(null);
@@ -24,7 +34,9 @@ export default function HomeLayout({
   const todoList = [
     "fix summary content",
     "add animation in overlap header",
-    "add hero background",
+    "fix chart tooltip",
+    "add data to chart",
+    "implement testimonials card see more",
   ];
 
   useEffect(() => {
@@ -62,7 +74,9 @@ export default function HomeLayout({
       <div
         ref={bgRef}
         className="absolute top-0 left-0 w-full h-[88vh] bg-cover bg-center bg-[var(--black)]"
-      ></div>
+      >
+        <HeroBackground />
+      </div>
 
       {/* Foreground Content */}
       <div
@@ -75,11 +89,16 @@ export default function HomeLayout({
       {/* Overlapping Section */}
       <div
         ref={overlapRef}
-        className="z-50 mb-[-50vh] flex flex-col min-h-[12vh] w-full"
+        className="z-50 mb-[-100%] flex flex-col min-h-[12vh] w-full"
       >
         {overlap}
         {summary}
         {skills}
+        {testimonials}
+        {work}
+        {projects}
+        {resume}
+        <Footer />
       </div>
     </div>
   );

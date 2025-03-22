@@ -1,5 +1,5 @@
-import GithubIcon from "@/components/icons/GithubIcon";
-import LinkedinIcon from "@/components/icons/LinkedinIcon";
+import GithubIcon from "@/components/icons/footer/GithubIcon";
+import LinkedinIcon from "@/components/icons/footer/LinkedinIcon";
 import Link from "next/link";
 
 export default function Footer() {

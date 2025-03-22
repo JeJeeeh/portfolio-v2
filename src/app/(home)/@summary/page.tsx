@@ -9,12 +9,12 @@ export default function SummarySection() {
   ];
 
   return (
-    <div className="flex flex-col space-y-[var(--content-space-y)] bg-white px-[var(--content-px)] py-[var(--content-py)]">
-      <h2 className="text-[var(--gray-accent)] text-3xl font-semibold">
-        <p>I've built projects across</p>
+    <div className="flex flex-col space-y-[var(--content-space-y)] bg-white text-[var(--black)] px-[var(--content-px)] py-[var(--content-py)]">
+      <h2 className="text-3xl font-semibold">
+        <p className="text-[var(--gray-accent)]">I've built projects across</p>
         <p>
-          <span className="text-[var(--black)]">various scopes</span> and
-          <span className="text-[var(--black)]"> platforms</span>
+          various scopes <span className="text-[var(--gray-accent)]">and</span>{" "}
+          platforms
         </p>
       </h2>
       <div className="grid grid-cols-3 gap-4">
