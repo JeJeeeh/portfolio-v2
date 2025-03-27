@@ -1,10 +1,10 @@
 "use client";
 
 import HeroBackground from "@/components/hero/HeroBackground";
+import Footer from "@/components/layout/Footer";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import Footer from "../features/shared/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,6 +37,8 @@ export default function HomeLayout({
     "fix chart tooltip",
     "add data to chart",
     "implement testimonials card see more",
+    "add validation in contact form",
+    "page transition animations",
   ];
 
   useEffect(() => {
@@ -89,7 +91,7 @@ export default function HomeLayout({
       {/* Overlapping Section */}
       <div
         ref={overlapRef}
-        className="z-50 mb-[-100%] flex flex-col min-h-[12vh] w-full"
+        className="absolute z-50 mb-[-100%] flex flex-col min-h-[12vh] w-full"
       >
         {overlap}
         {summary}

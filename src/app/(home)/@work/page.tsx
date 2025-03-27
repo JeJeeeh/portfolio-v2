@@ -1,4 +1,5 @@
 import WorkCard from "@/components/work/WorkCard";
+import { workData } from "@/data/work";
 
 export default function WorkSection() {
   return (
@@ -16,9 +17,9 @@ export default function WorkSection() {
         </p>
       </h2>
       <div className="grid grid-cols-3 gap-4">
-        <WorkCard />
-        <WorkCard />
-        <WorkCard />
+        {workData.map((work, index) => (
+          <WorkCard key={index} data={work} />
+        ))}
       </div>
       <div className="flex flex-col text-[var(--gray-accent)] text-center">
         <p>I'm excited to find the next company where I can make an impact</p>

@@ -38,7 +38,7 @@ export default function ScrollSmootherWrapper({ children }: Props) {
   }, []);
 
   return (
-    <div id="smooth-wrapper" className="grow">
+    <div id="smooth-wrapper">
       <div id="smooth-content">{children}</div>
     </div>
   );
