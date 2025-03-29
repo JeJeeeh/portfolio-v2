@@ -8,9 +8,9 @@ interface EducationCardProps {
 const EducationCard = ({ data }: EducationCardProps) => {
   return (
     <div className="bg-[var(--white-accent)] rounded-md p-6 flex flex-col items-start space-y-2">
-      <h4 className="text-3xl font-semibold">{data.schoolName}</h4>
+      <p className="text-3xl font-semibold">{data.schoolName}</p>
       <div>
-        <h5>{data.major}</h5>
+        <p>{data.major}</p>
         <p className="text-[var(--gray-accent)]">{`${data.year.start} - ${data.year.end}`}</p>
       </div>
     </div>
@@ -24,7 +24,7 @@ interface LanguageCardProps {
 const LanguageCard = ({ data }: LanguageCardProps) => {
   return (
     <div className="bg-[var(--white-accent)] rounded-md p-6 flex flex-col items-start space-y-2">
-      <h4 className="text-3xl font-semibold">Language</h4>
+      <p className="text-3xl font-semibold">Language</p>
       <div>
         {data.map((language, index) => (
           <p key={index}>{`${language.language}: ${language.proficiency}`}</p>

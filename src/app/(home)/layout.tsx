@@ -36,9 +36,9 @@ export default function HomeLayout({
     "add animation in overlap header",
     "fix chart tooltip",
     "add data to chart",
-    "implement testimonials card see more",
     "add validation in contact form",
     "page transition animations",
+    "add content in resume work section",
   ];
 
   useEffect(() => {

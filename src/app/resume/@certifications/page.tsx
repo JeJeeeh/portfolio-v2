@@ -1,11 +1,5 @@
-const CertificationCard = () => {
-  return (
-    <div className="bg-[var(--white-accent)] rounded-md p-6">
-      <p className="text-xl">Redhat</p>
-      <p className="text-[var(--gray)]">2025</p>
-    </div>
-  );
-};
+import ResumeCertificationCard from "@/components/cards/ResumeCertificationCard";
+import { certificationData } from "@/data/certification";
 
 export default function ResumeCertificationsSection() {
   return (
@@ -20,9 +14,10 @@ export default function ResumeCertificationsSection() {
           are the certifications I have earned throughout my journey.
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-4">
-        <CertificationCard />
-        <CertificationCard />
+      <div className="grid grid-cols-2 gap-4">
+        {certificationData.map((cert, index) => (
+          <ResumeCertificationCard key={index} data={cert} />
+        ))}
       </div>
     </div>
   );

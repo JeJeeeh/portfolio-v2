@@ -1,4 +1,4 @@
-import WorkCard from "@/components/work/WorkCard";
+import WorkCard from "@/components/cards/WorkCard";
 import { workData } from "@/data/work";
 
 export default function WorkSection() {

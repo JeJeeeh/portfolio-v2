@@ -1,4 +1,5 @@
-import TestimonialCard from "@/components/testimonials/TestimonialCard";
+import TestimonialCard from "@/components/cards/TestimonialCard";
+import { testimonialData } from "@/data/testimonial";
 
 export default function TestimonialsSection() {
   return (
@@ -15,8 +16,10 @@ export default function TestimonialsSection() {
           say about me
         </p>
       </h2>
-      <div className="flex flex-col">
-        <TestimonialCard />
+      <div className="flex flex-col space-y-4">
+        {testimonialData.map((testimonial, index) => (
+          <TestimonialCard key={index} data={testimonial} />
+        ))}
       </div>
     </div>
   );
