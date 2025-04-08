@@ -2,9 +2,10 @@
 
 import HeroBackground from "@/components/hero/HeroBackground";
 import Footer from "@/components/layout/Footer";
+import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,51 +28,69 @@ export default function HomeLayout({
   projects: React.ReactNode;
   resume: React.ReactNode;
 }>) {
-  const bgRef = useRef(null);
-  const heroRef = useRef(null);
-  const overlapRef = useRef(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const overlapRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const todoList = [
-    "fix summary content",
     "add animation in overlap header",
     "fix chart tooltip",
     "add data to chart",
-    "add validation in contact form",
-    "page transition animations",
-    "add content in resume work section",
+    "add component slide in animation",
+    "fix SEO",
+    "page transtiton may sometimes flicker(?)",
+    "fix table animation",
   ];
 
-  useEffect(() => {
-    // Development notes
-    console.log(todoList);
+  console.log(todoList);
 
-    if (!bgRef.current || !overlapRef.current) return;
+  useGsapScrollTrigger(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+          pinSpacing: false,
+          markers: false,
+        },
+      });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: bgRef.current, // The same trigger for both animations
-        start: "top top",
-        end: "bottom top",
-        pinSpacing: false,
-        scrub: true,
-      },
-    });
+      // tl.to(overlapRef.current, {
+      //   y: "-50%",
+      //   ease: "none",
+      // });
 
-    // Animate the overlapping element
-    tl.to(overlapRef.current, {
-      y: "-50%",
-      ease: "none",
-    });
+      tl.to(
+        bgRef.current,
+        {
+          scaleY: 1.2,
+          transformOrigin: "center top",
+          ease: "none",
+        },
+        "<"
+      );
 
-    // Animate the background
-    tl.to(bgRef.current, { scaleY: 1.2, ease: "none" }, "<");
-
-    // Animate the hero
-    tl.to(heroRef.current, { opacity: 0, ease: "power2.out" }, "<");
-  }, []);
+      tl.to(
+        heroRef.current,
+        {
+          opacity: 0,
+          ease: "power2.out",
+        },
+        "<"
+      );
+    },
+    [],
+    containerRef
+  );
 
   return (
-    <div className="relative min-h-[100vh] bg-[var(--black)]">
+    <div
+      ref={containerRef}
+      className="relative min-h-[100vh] bg-[var(--black)]"
+    >
       {/* Parallax Background */}
       <div
         ref={bgRef}
@@ -91,7 +110,7 @@ export default function HomeLayout({
       {/* Overlapping Section */}
       <div
         ref={overlapRef}
-        className="absolute z-50 mb-[-100%] flex flex-col min-h-[12vh] w-full"
+        className="absolute z-50 flex flex-col min-h-[12vh] w-full"
       >
         {overlap}
         {summary}

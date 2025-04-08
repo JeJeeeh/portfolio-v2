@@ -1,102 +1,44 @@
-export interface TechstackData {
-  name: string;
-}
+export const techstackLanguage = [
+  "HTML",
+  "CSS",
+  "Tailwind",
+  "Javascript",
+  "Typescript",
+  "PHP",
+  "Java",
+  "C#",
+  "C++",
+  "Python",
+  "Kotlin",
+  "MySQL",
+] as const;
 
-export const techstackLanguageData: TechstackData[] = [
-  {
-    name: "HTML",
-  },
-  {
-    name: "CSS",
-  },
-  {
-    name: "Tailwind",
-  },
-  {
-    name: "Javascript",
-  },
-  {
-    name: "Typescript",
-  },
-  {
-    name: "PHP",
-  },
-  {
-    name: "Java",
-  },
-  {
-    name: "C#",
-  },
-  {
-    name: "C++",
-  },
-  {
-    name: "Python",
-  },
-  {
-    name: "Kotlin",
-  },
-  {
-    name: "MySQL",
-  },
-];
+export type TechstackLanguage = (typeof techstackLanguage)[number];
 
-export const techstackFrameworkData: TechstackData[] = [
-  {
-    name: "React",
-  },
-  {
-    name: "NextJS",
-  },
-  {
-    name: "ExpressJS",
-  },
-  {
-    name: ".NET",
-  },
-  {
-    name: "Laravel",
-  },
-  {
-    name: "SpringBoot",
-  },
-  {
-    name: "Flutter",
-  },
-  {
-    name: "Arduino",
-  },
-];
+export const techstackFramework = [
+  "React",
+  "NextJS",
+  "ExpressJS",
+  ".NET",
+  "Laravel",
+  "SpringBoot",
+  "Flutter",
+  "Arduino",
+] as const;
 
-export const techstackToolData: TechstackData[] = [
-  {
-    name: "Docker",
-  },
-  {
-    name: "Kubernets",
-  },
-  {
-    name: "Postman",
-  },
-  {
-    name: "Cypress",
-  },
-  {
-    name: "RabbitMQ",
-  },
-  {
-    name: "Prometheus",
-  },
-  {
-    name: "Grafana",
-  },
-  {
-    name: "Google Cloud",
-  },
-  {
-    name: "Linux",
-  },
-  {
-    name: "Figma",
-  },
-];
+export type TechstackFramework = (typeof techstackFramework)[number];
+
+export const techstackTool = [
+  "Docker",
+  "Kubernets",
+  "Postman",
+  "Cypress",
+  "RabbitMQ",
+  "Prometheus",
+  "Grafana",
+  "Google Cloud",
+  "Linux",
+  "Figma",
+] as const;
+
+export type TechstackTool = (typeof techstackTool)[number];

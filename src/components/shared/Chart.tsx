@@ -7,6 +7,9 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "../ui/chart";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 interface ChartData {
   [key: string]: number | string;
@@ -17,9 +20,12 @@ interface Props {
   config: ChartConfig;
   label?: string;
   tooltip?: boolean;
+  trigger: HTMLDivElement | null;
 }
 
-const Chart = ({ data, config, label, tooltip = false }: Props) => {
+gsap.registerPlugin(ScrollTrigger);
+
+const Chart = ({ data, config, label, tooltip = false, trigger }: Props) => {
   const barData = label
     ? (() => {
         const { [label]: _, ...rest } = data[0];
@@ -28,7 +34,7 @@ const Chart = ({ data, config, label, tooltip = false }: Props) => {
     : data;
 
   return (
-    <ChartContainer config={config} className="h-[200px] w-full">
+    <ChartContainer config={config} className="min-h-[200px] w-full">
       <BarChart accessibilityLayer data={data}>
         {label && (
           <XAxis

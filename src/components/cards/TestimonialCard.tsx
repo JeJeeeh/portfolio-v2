@@ -5,7 +5,7 @@ import DownIcon from "../icons/testimonials/DownIcon";
 import Avatar from "../shared/Avatar";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import CardContentSlide from "../framer/CardContentSlide";
 
@@ -13,7 +13,11 @@ interface Props {
   data: TestimonialData;
 }
 
-export default function TestimonialCard({ data }: Props) {
+const TestimonialCard = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useImperativeHandle(ref, () => containerRef.current as HTMLDivElement);
+
   const [opened, setOpened] = useState(false);
 
   const toggleOpen = () => {
@@ -21,7 +25,10 @@ export default function TestimonialCard({ data }: Props) {
   };
 
   return (
-    <div className="bg-[var(--white-accent)] w-full rounded-md p-6 flex flex-col items-start space-y-2">
+    <div
+      ref={containerRef}
+      className="bg-[var(--white-accent)] w-full rounded-md p-6 flex flex-col items-start space-y-2"
+    >
       <div className="flex items-center space-x-4">
         <Avatar src={data.imageUrl || ""} alt={data.alt} />
         <Link
@@ -61,4 +68,7 @@ export default function TestimonialCard({ data }: Props) {
       </Button>
     </div>
   );
-}
+});
+
+TestimonialCard.displayName = "TestimonialCard";
+export default TestimonialCard;

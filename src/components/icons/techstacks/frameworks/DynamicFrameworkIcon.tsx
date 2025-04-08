@@ -23,11 +23,11 @@ export const languageIcons: LanguageIconData = {
 };
 
 interface Props {
-  name: string;
+  tech: string;
 }
 
-export default function DynamicLanguageIcon({ name }: Props) {
-  const IconComponent = languageIcons[name.toLowerCase()];
+export default function DynamicLanguageIcon({ tech }: Props) {
+  const IconComponent = languageIcons[tech.toLowerCase()];
 
   return IconComponent ? <IconComponent /> : <span>Icon not found</span>;
 }

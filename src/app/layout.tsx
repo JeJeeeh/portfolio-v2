@@ -5,6 +5,7 @@ import "./globals.css";
 import ScrollSmootherWrapper from "@/components/gsap/ScrollSmootherWrapper";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import PageTransition from "@/components/framer/PageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,7 @@ export default function RootLayout({
       <body className={`antialiased min-h-screen font-mono`}>
         <Navbar />
         <ScrollSmootherWrapper>
-          {children}
+          <PageTransition>{children}</PageTransition>
           <Footer />
         </ScrollSmootherWrapper>
       </body>

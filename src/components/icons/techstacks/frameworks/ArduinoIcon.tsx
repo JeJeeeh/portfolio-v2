@@ -8,8 +8,8 @@ export default function ArduinoIcon() {
       <path
         fill="#00979D"
         stroke="#81C9CB"
-        stroke-width=".932"
-        stroke-miterlimit="10"
+        strokeWidth=".932"
+        strokeMiterlimit="10"
         d="M1371.701 686.024c0 378.658-306.972 685.605-685.549 685.605C307.451 1371.629.5 1064.682.5 686.024.5 307.455 307.451.483 686.152.483c378.594.001 685.549 306.972 685.549 685.541z"
       />
       <linearGradient

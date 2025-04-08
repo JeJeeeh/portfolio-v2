@@ -1,5 +1,11 @@
+"use client";
+
 import { educationData, EducationData } from "@/data/education";
 import { languageData, LanguageData } from "@/data/language";
+import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useRef } from "react";
 
 interface EducationCardProps {
   data: EducationData;
@@ -35,14 +41,60 @@ const LanguageCard = ({ data }: LanguageCardProps) => {
 };
 
 export default function ResumeEducationSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+
+  useGsapScrollTrigger(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+        },
+      });
+
+      tl.from(titleRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out",
+      });
+
+      ScrollTrigger.batch(".resume-educationcard", {
+        onEnter: (batch) => {
+          gsap.from(batch, {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            stagger: 0.2,
+          });
+        },
+        once: true,
+      });
+    },
+    [],
+    containerRef
+  );
+
   return (
-    <div className="flex flex-col space-y-[var(--content-space-y)] px-[var(--content-px)] py-[var(--content-py)]">
-      <h2 className="text-5xl font-semibold">Education and language</h2>
+    <div
+      ref={containerRef}
+      className="flex flex-col space-y-[var(--content-space-y)] px-[var(--content-px)] py-[var(--content-py)]"
+    >
+      <h2 ref={titleRef} className="text-5xl font-semibold">
+        Education and language
+      </h2>
       <div className="grid grid-cols-1 gap-4 w-full">
         {educationData.map((education, index) => (
-          <EducationCard key={index} data={education} />
+          <div key={index} className="resume-educationcard">
+            <EducationCard data={education} />
+          </div>
         ))}
-        <LanguageCard data={languageData} />
+        <div className="resume-educationcard">
+          <LanguageCard data={languageData} />
+        </div>
       </div>
     </div>
   );

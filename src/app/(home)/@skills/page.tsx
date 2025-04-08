@@ -1,25 +1,41 @@
-import Chart from "@/components/shared/Chart";
-import { type ChartConfig } from "@/components/ui/chart";
+"use client";
+
+import { useRef } from "react";
+import SkillsChartContainer from "./components/SkillsChartContainer";
+import HomeHeader from "@/components/shared/HomeHeader";
+import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
+import gsap from "gsap";
 
 export default function SkillSection() {
-  const chartData = [
-    { tech: "Tech 1", count: 5 },
-    { tech: "Tech 2", count: 10 },
-    { tech: "Tech 3", count: 8 },
-    { tech: "Tech 4", count: 6 },
-    { tech: "Tech 5", count: 12 },
-  ];
+  const headerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const chartConfig = {
-    count: {
-      label: "Count",
-      color: "#161616",
+  useGsapScrollTrigger(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+        },
+      });
+
+      tl.from(headerRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      });
     },
-  } satisfies ChartConfig;
+    [],
+    containerRef
+  );
 
   return (
-    <div className="flex flex-col space-y-[var(--content-space-y)] bg-[var(--black)] text-[var(--white)] px-[var(--content-px)] py-[var(--content-py)]">
-      <h2 className="text-3xl font-semibold">
+    <div
+      ref={containerRef}
+      className="flex flex-col space-y-[var(--content-space-y)] bg-[var(--black)] text-[var(--white)] px-[var(--content-px)] py-[var(--content-py)]"
+    >
+      <HomeHeader ref={headerRef}>
         <p>
           <span className="text-[var(--gray-accent)]">I've utilized</span>{" "}
           various tech-stacks
@@ -28,17 +44,8 @@ export default function SkillSection() {
           <span className="text-[var(--gray-accent)]">to suit</span> different
           project needs
         </p>
-      </h2>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="flex flex-col items-center space-y-4">
-          <Chart data={chartData} config={chartConfig} label="tech" />
-          <p>Technology</p>
-        </div>
-        <div className="flex flex-col items-center space-y-4">
-          <Chart data={chartData} config={chartConfig} label="tech" />
-          <p>Framework</p>
-        </div>
-      </div>
+      </HomeHeader>
+      <SkillsChartContainer />
     </div>
   );
 }
