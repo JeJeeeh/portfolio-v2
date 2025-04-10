@@ -2,7 +2,7 @@ export default function DockerIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
       viewBox="-.557 117.607 598.543 423.631"
     >
       <g fill="#0091e2">

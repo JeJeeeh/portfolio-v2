@@ -2,7 +2,7 @@ export default function PostmanIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
       viewBox="-13.58674873666481 -3.5096047119942106 81.71274873666479 72.05384966725056"
     >
       <style>{".C{fill:#ff6c37}.D{fill:#fff}"}</style>

@@ -3,7 +3,7 @@ export default function FigmaIcon() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
       viewBox="1.466 2.199 285.068 427.602"
     >
       <path d="M1.466 2.2h285.068V429.8H1.466z" strokeWidth="3" />

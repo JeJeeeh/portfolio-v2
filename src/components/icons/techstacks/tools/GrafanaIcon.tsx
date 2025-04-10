@@ -3,7 +3,7 @@ export default function GrafanaIcon() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="8.5 1 334.1000000000001 363"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
     >
       <linearGradient
         id="a"

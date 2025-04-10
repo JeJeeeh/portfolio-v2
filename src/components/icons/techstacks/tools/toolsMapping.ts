@@ -1,3 +1,4 @@
+import { TechstackIconData } from "../TechstackIcon";
 import CypressIcon from "./CypressIcon";
 import DockerIcon from "./DockerIcon";
 import FigmaIcon from "./FigmaIcon";
@@ -9,11 +10,7 @@ import PostmanIcon from "./PostmanIcon";
 import PrometheusIcon from "./PrometheusIcon";
 import RabbitmqIcon from "./RabbitmqIcon";
 
-interface LanguageIconData {
-  [key: string]: React.FC;
-}
-
-export const languageIcons: LanguageIconData = {
+export const toolIcons: TechstackIconData = {
   docker: DockerIcon,
   kubernets: KubernetsIcon,
   postman: PostmanIcon,
@@ -25,13 +22,3 @@ export const languageIcons: LanguageIconData = {
   linux: LinuxIcon,
   figma: FigmaIcon,
 };
-
-interface Props {
-  tech: string;
-}
-
-export default function DynamicLanguageIcon({ tech }: Props) {
-  const IconComponent = languageIcons[tech.toLowerCase()];
-
-  return IconComponent ? <IconComponent /> : <span>Icon not found</span>;
-}

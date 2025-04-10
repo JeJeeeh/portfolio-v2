@@ -1,18 +1,52 @@
+"use client";
+
 import BornIcon from "@/components/icons/about/BornIcon";
 import ExperienceIcon from "@/components/icons/about/ExperienceIcon";
 import FromIcon from "@/components/icons/about/FromIcon";
 import LanguageIcon from "@/components/icons/about/LanguageIcon";
 import LocationIcon from "@/components/icons/about/LocationIcon";
 import RoleIcon from "@/components/icons/about/RoleIcon";
+import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useRef } from "react";
 
 export default function ContactDetailSection() {
   const detailCardStyle =
-    "flex flex-col space-y-2 p-6 rounded-md bg-[var(--black-accent)] text-[var(--white)]";
+    "flex flex-col space-y-2 p-6 rounded-md bg-[var(--black-accent)] text-[var(--white)] contact-detailcard";
   const detailTitleStyle = "text-2xl font-semibold";
   const detailDataStyle = "text-[var(--gray)]";
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGsapScrollTrigger(
+    () => {
+      ScrollTrigger.batch(".contact-detailcard", {
+        onEnter: (batch) => {
+          gsap.from(batch, {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            stagger: 0.2,
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 80%",
+            },
+          });
+        },
+        once: true,
+      });
+    },
+    [],
+    containerRef
+  );
+
   return (
-    <div className="flex flex-col space-y-[var(--content-space-y)] bg-[var(--black)] text-[var(--white)] px-[var(--content-px)]">
+    <div
+      ref={containerRef}
+      className="flex flex-col space-y-[var(--content-space-y)] bg-[var(--black)] text-[var(--white)] px-[var(--content-px)] py-[var(--content-py)]"
+    >
       <div className="grid grid-cols-4 gap-4">
         <div className={`${detailCardStyle} col-span-2`}>
           <div className="flex space-x-2 items-center">

@@ -1,0 +1,59 @@
+"use client";
+
+import TechstackIcon from "@/components/icons/techstacks/TechstackIcon";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { ProjectData } from "@/data/project";
+import Link from "next/link";
+import { forwardRef, useImperativeHandle, useRef } from "react";
+
+interface Props {
+  data: ProjectData;
+}
+
+const HomeProjectCard = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useImperativeHandle(ref, () => containerRef.current as HTMLDivElement);
+
+  return (
+    <div
+      ref={containerRef}
+      className="flex flex-col space-y-4 space-x-4 w-[50%] items-center"
+    >
+      {/* project image */}
+      <div className="h-[250px] aspect-video bg-gray-500 projectcard-image"></div>
+
+      {/* project content */}
+      <div className="flex flex-col space-y-4 items-center">
+        <div className="text-3xl font-semibold projectcard-name">
+          {data.name}
+        </div>
+        <div className="flex space-x-4 projectcard-tech">
+          {data.languages.map((tech, index) => (
+            <div key={index}>
+              <TechstackIcon className="h-[24px]" tech={tech} />
+            </div>
+          ))}
+          {data.frameworks.map((tech, index) => (
+            <div key={index}>
+              <TechstackIcon className="h-[24px]" tech={tech} />
+            </div>
+          ))}
+        </div>
+        <Separator className="bg-black projectcard-separator" />
+        <div className="text-[var(--gray-accent)] text-center flex grow projectcard-description">
+          {data.description}
+        </div>
+        <div className="flex justify-center projectcard-button">
+          <Link href={`/projects/${data.slug}`}>
+            <Button variant={"outline"}>See more</Button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+HomeProjectCard.displayName = "HomeProjectCard";
+export default HomeProjectCard;

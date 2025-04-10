@@ -3,7 +3,7 @@ export default function TypescriptIcon() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 400 400"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
     >
       <path fill="#007acc" d="M0 200V0h400v400H0" />
       <path

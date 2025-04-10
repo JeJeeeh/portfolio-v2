@@ -12,7 +12,7 @@ const HomeHeader = forwardRef<HTMLDivElement, Props>(({ children }, ref) => {
   useImperativeHandle(ref, () => headerRef.current as HTMLDivElement);
 
   return (
-    <div ref={headerRef} className="text-3xl font-semibold">
+    <div ref={headerRef} className="text-4xl font-semibold">
       {children}
     </div>
   );

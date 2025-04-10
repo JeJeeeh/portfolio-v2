@@ -3,7 +3,7 @@ export default function CypressIcon() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="6.5 6.4 950.0999999999999 948.5"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
     >
       <linearGradient
         id="a"

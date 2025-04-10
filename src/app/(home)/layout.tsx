@@ -36,11 +36,9 @@ export default function HomeLayout({
   const todoList = [
     "add animation in overlap header",
     "fix chart tooltip",
-    "add data to chart",
-    "add component slide in animation",
     "fix SEO",
     "page transtiton may sometimes flicker(?)",
-    "fix table animation",
+    "add project images and fallback",
   ];
 
   console.log(todoList);

@@ -2,7 +2,7 @@ export default function CsharpIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
       preserveAspectRatio="xMidYMid"
       viewBox="0 -1.428 255.582 290.108"
     >

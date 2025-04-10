@@ -2,7 +2,7 @@ export default function LaravelIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
       viewBox="0 -.11376601 49.74245785 51.31690859"
     >
       <path

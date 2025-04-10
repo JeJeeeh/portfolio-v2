@@ -5,7 +5,7 @@ export default function FlutterIcon() {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       enableBackground="new 0 0 1999 2474.2"
       viewBox="0 0 1999 2474.2"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
     >
       <linearGradient
         id="a"

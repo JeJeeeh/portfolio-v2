@@ -1,3 +1,4 @@
+import { TechstackIconData } from "../TechstackIcon";
 import CplusIcon from "./CplusIcon";
 import CsharpIcon from "./CsharpIcon";
 import CssIcon from "./CssIcon";
@@ -11,11 +12,7 @@ import PythonIcon from "./PythonIcon";
 import TailwindIcon from "./TailwindIcon";
 import TypescriptIcon from "./TypescriptIcon";
 
-interface LanguageIconData {
-  [key: string]: React.FC;
-}
-
-export const languageIcons: LanguageIconData = {
+export const languageIcons: TechstackIconData = {
   html: HtmlIcon,
   css: CssIcon,
   tailwind: TailwindIcon,
@@ -29,13 +26,3 @@ export const languageIcons: LanguageIconData = {
   kotlin: KotlinIcon,
   mysql: MysqlIcon,
 };
-
-interface Props {
-  tech: string;
-}
-
-export default function DynamicLanguageIcon({ tech }: Props) {
-  const IconComponent = languageIcons[tech.toLowerCase()];
-
-  return IconComponent ? <IconComponent /> : <span>Icon not found</span>;
-}

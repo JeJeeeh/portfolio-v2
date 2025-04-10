@@ -2,7 +2,7 @@ export default function ReactIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
       viewBox="175.7 78 490.6 436.9"
     >
       <g fill="#61dafb">

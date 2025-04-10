@@ -1,7 +1,77 @@
+"use client";
+
+import HomeHeader from "@/components/shared/HomeHeader";
+import { projectData } from "@/data/project";
+import HomeProjectCard from "./components/HomeProjectCard";
+import { useMemo, useRef } from "react";
+import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
 export default function ProjectsSection() {
+  const highlights = [
+    "portfolio-website-v2",
+    "svg-editor-in-template-designer",
+  ];
+
+  const higlightProjects = useMemo(() => {
+    return projectData.filter((x) => highlights.includes(x.slug));
+  }, []);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useGsapScrollTrigger(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+        },
+      });
+
+      tl.from(headerRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      });
+
+      const batchSelectors = [
+        ".projectcard-image",
+        ".projectcard-name",
+        ".projectcard-tech",
+        ".projectcard-separator",
+        ".projectcard-description",
+        ".projectcard-button",
+      ];
+
+      batchSelectors.forEach((selector) => {
+        ScrollTrigger.batch(`#home-projects ${selector}`, {
+          onEnter: (batch) => {
+            gsap.from(batch, {
+              y: 40,
+              opacity: 0,
+              duration: 0.8,
+              ease: "power2.out",
+              stagger: 0.2,
+              scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top 80%",
+              },
+            });
+          },
+          once: true,
+        });
+      });
+    },
+    [],
+    containerRef
+  );
+
   return (
     <div className="min-h-screen flex flex-col space-y-[var(--content-space-y)] bg-white text-[var(--black)] px-[var(--content-px)] py-[var(--content-py)]">
-      <h2 className="text-3xl font-semibold">
+      <HomeHeader ref={headerRef}>
         <p>
           <span className="text-[var(--gray-accent)]">
             I've built projects that
@@ -12,7 +82,12 @@ export default function ProjectsSection() {
           my skills <span className="text-[var(--gray-accent)]">and</span>{" "}
           experience
         </p>
-      </h2>
+      </HomeHeader>
+      <div className="flex flex-col space-y-16 items-center" id="home-projects">
+        {higlightProjects.map((project, index) => (
+          <HomeProjectCard key={index} data={project} />
+        ))}
+      </div>
     </div>
   );
 }

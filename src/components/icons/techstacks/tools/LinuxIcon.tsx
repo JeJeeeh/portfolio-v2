@@ -2,7 +2,7 @@ export default function LinuxIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
       viewBox="0 0 192.756 192.756"
     >
       <g fillRule="evenodd" clipRule="evenodd">

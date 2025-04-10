@@ -3,7 +3,7 @@ export default function JavascriptIcon() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
       viewBox="0 0 124 141.53199999999998"
     >
       <path

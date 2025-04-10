@@ -2,7 +2,7 @@ export default function MysqlIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
       preserveAspectRatio="xMidYMid"
       viewBox="-3.576 -8.996 259.406 260.1"
     >

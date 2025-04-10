@@ -7,7 +7,7 @@ export default function GooglecloudIcon() {
       id="Layer_1"
       x="0px"
       y="0px"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
       viewBox="0 0 2385.7 1919.9"
       xmlSpace="preserve"
     >

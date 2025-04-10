@@ -1,8 +1,8 @@
 export const techstackLanguage = [
   "HTML",
   "CSS",
-  "Tailwind",
   "Javascript",
+  "Tailwind",
   "Typescript",
   "PHP",
   "Java",

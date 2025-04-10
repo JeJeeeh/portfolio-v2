@@ -4,7 +4,7 @@ export default function KotlinIcon() {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 24 24"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
     >
       <linearGradient
         id="c"

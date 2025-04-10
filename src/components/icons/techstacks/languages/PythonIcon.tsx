@@ -2,7 +2,7 @@ export default function PythonIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-[24px] md:h-[36px]"
+      className="h-[100%] w-[100%]"
       viewBox="0 0 256 255"
       preserveAspectRatio="xMinYMin meet"
     >

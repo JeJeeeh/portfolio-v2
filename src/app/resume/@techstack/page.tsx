@@ -6,7 +6,7 @@ import {
   techstackTool,
 } from "@/data/techstack";
 import { useRef } from "react";
-import TechstackCard, { techstackType } from "./components/TechstackCard";
+import TechstackCard from "./components/TechstackCard";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -16,17 +16,14 @@ export default function ResumeTechstackSection() {
     {
       title: "Languages",
       data: techstackLanguage,
-      type: "language",
     },
     {
       title: "Frameworks",
       data: techstackFramework,
-      type: "framework",
     },
     {
       title: "Tools",
       data: techstackTool,
-      type: "tool",
     },
   ];
 
@@ -115,10 +112,7 @@ export default function ResumeTechstackSection() {
           <div className="grid grid-cols-5 gap-4">
             {techstack.data.map((tech, cardIndex) => (
               <div key={cardIndex} className="techstack-card">
-                <TechstackCard
-                  tech={tech}
-                  type={techstack.type as techstackType}
-                />
+                <TechstackCard tech={tech} />
               </div>
             ))}
           </div>
