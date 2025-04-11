@@ -4,6 +4,8 @@ import { useRef } from "react";
 import gsap from "gsap";
 import HomeHeader from "@/components/shared/HomeHeader";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
+import { getDefaultPageStyle } from "@/config/stylingConfig";
+import { itemsSlideIn, slideIn } from "@/config/gsapConfig";
 
 export default function SummarySection() {
   const summaryData = [
@@ -21,31 +23,21 @@ export default function SummarySection() {
 
   useGsapScrollTrigger(
     () => {
-      const tl = gsap.timeline({
+      gsap.from(headerRef.current, {
+        ...slideIn,
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 80%",
         },
       });
 
-      tl.from(headerRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-
-      tl.from(
-        cardsRef.current,
-        {
-          y: 50,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power2.out",
+      gsap.from(cardsRef.current, {
+        ...itemsSlideIn,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
         },
-        "-=0.4"
-      );
+      });
     },
     [],
     containerRef
@@ -54,7 +46,7 @@ export default function SummarySection() {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col space-y-[var(--content-space-y)] bg-white text-[var(--black)] px-[var(--content-px)] py-[var(--content-py)]"
+      className={`flex flex-col bg-white text-[var(--black)] ${getDefaultPageStyle()}`}
     >
       <HomeHeader ref={headerRef}>
         <p className="text-[var(--gray-accent)]">I've built projects across</p>

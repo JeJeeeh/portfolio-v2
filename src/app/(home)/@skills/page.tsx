@@ -5,6 +5,8 @@ import SkillsChartContainer from "./components/SkillsChartContainer";
 import HomeHeader from "@/components/shared/HomeHeader";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import gsap from "gsap";
+import { getDefaultPageStyle } from "@/config/stylingConfig";
+import { slideIn } from "@/config/gsapConfig";
 
 export default function SkillSection() {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -12,18 +14,12 @@ export default function SkillSection() {
 
   useGsapScrollTrigger(
     () => {
-      const tl = gsap.timeline({
+      gsap.from(headerRef.current, {
+        ...slideIn,
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 80%",
         },
-      });
-
-      tl.from(headerRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
       });
     },
     [],
@@ -33,7 +29,7 @@ export default function SkillSection() {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col space-y-[var(--content-space-y)] bg-[var(--black)] text-[var(--white)] px-[var(--content-px)] py-[var(--content-py)]"
+      className={`flex flex-col bg-[var(--black)] text-[var(--white)] ${getDefaultPageStyle()}`}
     >
       <HomeHeader ref={headerRef}>
         <p>

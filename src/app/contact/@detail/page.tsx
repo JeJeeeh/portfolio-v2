@@ -6,6 +6,8 @@ import FromIcon from "@/components/icons/about/FromIcon";
 import LanguageIcon from "@/components/icons/about/LanguageIcon";
 import LocationIcon from "@/components/icons/about/LocationIcon";
 import RoleIcon from "@/components/icons/about/RoleIcon";
+import { itemsSlideIn } from "@/config/gsapConfig";
+import { getDefaultPageStyle } from "@/config/stylingConfig";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -24,11 +26,7 @@ export default function ContactDetailSection() {
       ScrollTrigger.batch(".contact-detailcard", {
         onEnter: (batch) => {
           gsap.from(batch, {
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power2.out",
-            stagger: 0.2,
+            ...itemsSlideIn,
             scrollTrigger: {
               trigger: containerRef.current,
               start: "top 80%",
@@ -45,7 +43,7 @@ export default function ContactDetailSection() {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col space-y-[var(--content-space-y)] bg-[var(--black)] text-[var(--white)] px-[var(--content-px)] py-[var(--content-py)]"
+      className={`flex flex-col bg-[var(--black)] text-[var(--white)] ${getDefaultPageStyle()}`}
     >
       <div className="grid grid-cols-4 gap-4">
         <div className={`${detailCardStyle} col-span-2`}>

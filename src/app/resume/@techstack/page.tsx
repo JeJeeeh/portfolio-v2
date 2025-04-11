@@ -10,6 +10,8 @@ import TechstackCard from "./components/TechstackCard";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { itemsSlideIn, slideIn } from "@/config/gsapConfig";
+import { getDefaultPageStyle } from "@/config/stylingConfig";
 
 export default function ResumeTechstackSection() {
   const techstackData = [
@@ -40,33 +42,13 @@ export default function ResumeTechstackSection() {
         },
       });
 
-      tl.from(titleRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-      });
+      tl.from(titleRef.current, slideIn);
 
-      tl.from(
-        tagRef.current,
-        {
-          y: 50,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        "-=0.4"
-      );
+      tl.from(tagRef.current, slideIn, "-=0.4");
 
       ScrollTrigger.batch(".techstack-title", {
         onEnter: (batch) => {
-          gsap.from(batch, {
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power2.out",
-            stagger: 0.2,
-          });
+          gsap.from(batch, itemsSlideIn);
         },
         once: true,
       });
@@ -90,7 +72,7 @@ export default function ResumeTechstackSection() {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col text-[var(--black)] space-y-[var(--content-space-y)] px-[var(--content-px)] py-[var(--content-py)]"
+      className={`flex flex-col text-[var(--black)] ${getDefaultPageStyle()}`}
     >
       <div className="flex flex-col items-center space-y-4 items-center">
         <h2 ref={titleRef} className="text-5xl font-semibold">

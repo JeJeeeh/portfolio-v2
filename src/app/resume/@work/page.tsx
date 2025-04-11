@@ -1,6 +1,8 @@
 "use client";
 
 import ResumeWorkCard from "@/components/cards/ResumeWorkCard";
+import { itemsSlideIn, slideIn } from "@/config/gsapConfig";
+import { getDefaultPageStyle } from "@/config/stylingConfig";
 import { workData } from "@/data/work";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import gsap from "gsap";
@@ -20,22 +22,10 @@ export default function ResumeWorkSection() {
         },
       });
 
-      tl.from(titleRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-      });
+      tl.from(titleRef.current, slideIn);
 
       ScrollTrigger.batch(".resume-workcard", {
-        onEnter: (batch) =>
-          gsap.from(batch, {
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            stagger: 0.1,
-          }),
+        onEnter: (batch) => gsap.from(batch, itemsSlideIn),
         once: true,
       });
     },
@@ -46,7 +36,7 @@ export default function ResumeWorkSection() {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col space-y-[var(--content-space-y)] px-[var(--content-px)] py-[var(--content-py)]"
+      className={`flex flex-col space-y-[var(--content-space-y)] px-[var(--content-px)] py-[var(--content-py)] ${getDefaultPageStyle()}`}
     >
       <h2 ref={titleRef} className="text-5xl font-semibold">
         Work Experience

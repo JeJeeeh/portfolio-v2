@@ -7,6 +7,8 @@ import { useMemo, useRef } from "react";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { itemsSlideIn, slideIn } from "@/config/gsapConfig";
+import { getDefaultPageStyle } from "@/config/stylingConfig";
 
 export default function ProjectsSection() {
   const highlights = [
@@ -23,18 +25,12 @@ export default function ProjectsSection() {
 
   useGsapScrollTrigger(
     () => {
-      const tl = gsap.timeline({
+      gsap.from(headerRef.current, {
+        ...slideIn,
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 80%",
         },
-      });
-
-      tl.from(headerRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
       });
 
       const batchSelectors = [
@@ -50,11 +46,7 @@ export default function ProjectsSection() {
         ScrollTrigger.batch(`#home-projects ${selector}`, {
           onEnter: (batch) => {
             gsap.from(batch, {
-              y: 40,
-              opacity: 0,
-              duration: 0.8,
-              ease: "power2.out",
-              stagger: 0.2,
+              ...itemsSlideIn,
               scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top 80%",
@@ -70,7 +62,9 @@ export default function ProjectsSection() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col space-y-[var(--content-space-y)] bg-white text-[var(--black)] px-[var(--content-px)] py-[var(--content-py)]">
+    <div
+      className={`flex flex-col bg-white text-[var(--black)] ${getDefaultPageStyle()}`}
+    >
       <HomeHeader ref={headerRef}>
         <p>
           <span className="text-[var(--gray-accent)]">

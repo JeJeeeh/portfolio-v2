@@ -1,6 +1,8 @@
 "use client";
 
 import ResumeCertificationCard from "@/components/cards/ResumeCertificationCard";
+import { itemsSlideIn, slideIn } from "@/config/gsapConfig";
+import { getDefaultPageStyle } from "@/config/stylingConfig";
 import { certificationData } from "@/data/certification";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import gsap from "gsap";
@@ -21,31 +23,11 @@ export default function ResumeCertificationsSection() {
         },
       });
 
-      tl.from(titleRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-      });
+      tl.from(titleRef.current, slideIn);
 
-      tl.from(tagRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-      });
+      tl.from(tagRef.current, slideIn, "-=0.4");
 
-      tl.from(
-        cardsRef.current,
-        {
-          y: 50,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power2.out",
-        },
-        "-=0.4"
-      );
+      tl.from(cardsRef.current, itemsSlideIn, "-=0.4");
     },
     [],
     containerRef
@@ -54,7 +36,7 @@ export default function ResumeCertificationsSection() {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col text-[var(--black)] space-y-[var(--content-space-y)] px-[var(--content-px)] py-[var(--content-py)]"
+      className={`flex flex-col text-[var(--black)] ${getDefaultPageStyle()} `}
     >
       <div className="flex flex-col items-center space-y-4 items-center">
         <h2 ref={titleRef} className="text-5xl font-semibold">

@@ -1,5 +1,7 @@
 "use client";
 
+import { itemsSlideIn, slideIn } from "@/config/gsapConfig";
+import { getDefaultPageStyle } from "@/config/stylingConfig";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import gsap from "gsap";
 import { createRef, useMemo, useRef } from "react";
@@ -28,33 +30,13 @@ export default function ResumeHeaderSection() {
     () => {
       const tl = gsap.timeline();
 
-      tl.from(titleRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-      });
+      tl.from(titleRef.current, slideIn);
 
-      tl.from(
-        tagRef.current,
-        {
-          y: 50,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        "-=0.4"
-      );
+      tl.from(tagRef.current, slideIn, "-=0.4");
 
       tl.from(
         descriptionsRef.map((ref) => ref.current),
-        {
-          y: 50,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power2.out",
-        },
+        itemsSlideIn,
         "-=0.4"
       );
     },
@@ -65,7 +47,7 @@ export default function ResumeHeaderSection() {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col items-center space-y-[var(--content-space-y)] px-[var(--content-px)] py-[var(--content-py)]"
+      className={`flex flex-col items-center ${getDefaultPageStyle()}`}
     >
       <div className="flex flex-col space-y-4 items-center">
         <div ref={titleRef} className="text-6xl font-semibold">

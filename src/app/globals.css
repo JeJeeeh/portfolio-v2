@@ -85,6 +85,15 @@
   --content-px: 10rem;
   --content-py: 5rem;
   --content-space-y: 3rem;
+  --padding-x-sm: 5rem;
+  --padding-y-sm: 2rem;
+  --space-y-sm: 1rem;
+  --padding-x-md: 7rem;
+  --padding-y-md: 3rem;
+  --space-y-md: 3rem;
+  --padding-x-lg: 10rem;
+  --padding-y-lg: 5rem;
+  --space-y-lg: 3rem;
 }
 
 .dark {

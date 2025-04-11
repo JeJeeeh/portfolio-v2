@@ -1,5 +1,7 @@
 "use client";
 
+import { itemsSlideIn, slideIn } from "@/config/gsapConfig";
+import { getDefaultPageStyle } from "@/config/stylingConfig";
 import { educationData, EducationData } from "@/data/education";
 import { languageData, LanguageData } from "@/data/language";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
@@ -53,23 +55,11 @@ export default function ResumeEducationSection() {
         },
       });
 
-      tl.from(titleRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power2.out",
-      });
+      tl.from(titleRef.current, slideIn);
 
       ScrollTrigger.batch(".resume-educationcard", {
         onEnter: (batch) => {
-          gsap.from(batch, {
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power2.out",
-            stagger: 0.2,
-          });
+          gsap.from(batch, itemsSlideIn);
         },
         once: true,
       });
@@ -81,7 +71,7 @@ export default function ResumeEducationSection() {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col space-y-[var(--content-space-y)] px-[var(--content-px)] py-[var(--content-py)]"
+      className={`flex flex-col ${getDefaultPageStyle()} `}
     >
       <h2 ref={titleRef} className="text-5xl font-semibold">
         Education and language

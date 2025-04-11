@@ -12,6 +12,7 @@ import {
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import { useMemo, useRef } from "react";
 import gsap from "gsap";
+import { itemsScaleUp } from "@/config/gsapConfig";
 
 export default function SkillsChartContainer() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -68,11 +69,7 @@ export default function SkillsChartContainer() {
   useGsapScrollTrigger(
     () => {
       gsap.from(chartsRef.current, {
-        scaleY: 0,
-        transformOrigin: "bottom",
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power2.out",
+        ...itemsScaleUp,
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 80%",

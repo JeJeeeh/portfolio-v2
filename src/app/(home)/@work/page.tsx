@@ -2,6 +2,8 @@
 
 import WorkCard from "@/components/cards/WorkCard";
 import HomeHeader from "@/components/shared/HomeHeader";
+import { itemsSlideIn, slideIn } from "@/config/gsapConfig";
+import { getDefaultPageStyle } from "@/config/stylingConfig";
 import { workData } from "@/data/work";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import gsap from "gsap";
@@ -24,21 +26,15 @@ export default function WorkSection() {
           start: "top 80%",
         },
       });
+
       tl.from(headerRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
+        ...slideIn,
       });
 
       tl.from(
         cardsRef.map((ref) => ref.current),
         {
-          y: 50,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power2.out",
+          ...itemsSlideIn,
         },
         "-=0.4"
       );
@@ -46,10 +42,7 @@ export default function WorkSection() {
       tl.from(
         descriptionRef.current,
         {
-          y: 50,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.out",
+          ...slideIn,
         },
         "-=0.4"
       );
@@ -61,7 +54,7 @@ export default function WorkSection() {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col space-y-[var(--content-space-y)] bg-[var(--black)] text-[var(--white)] px-[var(--content-px)] py-[var(--content-py)]"
+      className={`flex flex-col bg-[var(--black)] text-[var(--white)] ${getDefaultPageStyle()}`}
     >
       <HomeHeader ref={headerRef}>
         <p>

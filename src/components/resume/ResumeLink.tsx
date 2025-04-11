@@ -5,6 +5,8 @@ import { Button } from "../ui/button";
 import { useRef } from "react";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import gsap from "gsap";
+import { slideIn } from "@/config/gsapConfig";
+import { getDefaultPageStyle } from "@/config/stylingConfig";
 
 export default function ResumeLink() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,10 +15,7 @@ export default function ResumeLink() {
   useGsapScrollTrigger(
     () => {
       gsap.from(contentRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
+        ...slideIn,
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 80%",
@@ -30,7 +29,7 @@ export default function ResumeLink() {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col space-y-[var(--content-space-y)] bg-[var(--black)] text-[var(--white)] px-[var(--content-px)] py-[var(--content-py)]"
+      className={`flex flex-col bg-[var(--black)] text-[var(--white)] ${getDefaultPageStyle()} `}
     >
       <div
         ref={contentRef}
