@@ -34,11 +34,12 @@ export default function HomeLayout({
   const containerRef = useRef<HTMLDivElement>(null);
 
   const todoList = [
-    "add animation in overlap header",
     "fix chart tooltip",
     "fix SEO",
     "page transtiton may sometimes flicker(?)",
     "add project images and fallback",
+    "fix parallax effect",
+    "add logo shrink effect",
   ];
 
   console.log(todoList);

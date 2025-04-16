@@ -9,6 +9,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { itemsSlideIn, slideIn } from "@/config/gsapConfig";
 import { getDefaultPageStyle } from "@/config/stylingConfig";
+import Link from "next/link";
 
 export default function ProjectsSection() {
   const highlights = [
@@ -39,7 +40,6 @@ export default function ProjectsSection() {
         ".projectcard-tech",
         ".projectcard-separator",
         ".projectcard-description",
-        ".projectcard-button",
       ];
 
       batchSelectors.forEach((selector) => {
@@ -81,6 +81,19 @@ export default function ProjectsSection() {
         {higlightProjects.map((project, index) => (
           <HomeProjectCard key={index} data={project} />
         ))}
+      </div>
+      <div className="flex justify-center">
+        <Link
+          href={"/projects"}
+          className="relative inline-block font-semibold
+          text-current transition-colors duration-300 
+          hover:text-[var(--gray-accent)] 
+          after:block after:h-[2px] after:bg-[var(--gray-accent)] 
+          after:scale-x-0 after:transition-transform after:duration-300 after:origin-left 
+          hover:after:scale-x-100"
+        >
+          [See more projects]
+        </Link>
       </div>
     </div>
   );

@@ -3,5 +3,10 @@ export default function ProjectsLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div>Projects Layout</div>;
+  return (
+    <div className="w-full">
+      <div className="w-full h-18" />
+      {children}
+    </div>
+  );
 }

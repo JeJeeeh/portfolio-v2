@@ -1,10 +1,8 @@
 "use client";
 
 import TechstackIcon from "@/components/icons/techstacks/TechstackIcon";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ProjectData } from "@/data/project";
-import Link from "next/link";
 import { forwardRef, useImperativeHandle, useRef } from "react";
 
 interface Props {
@@ -44,11 +42,6 @@ const HomeProjectCard = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
         <Separator className="bg-black projectcard-separator" />
         <div className="text-[var(--gray-accent)] text-center flex grow projectcard-description">
           {data.description}
-        </div>
-        <div className="flex justify-center projectcard-button">
-          <Link href={`/projects/${data.slug}`}>
-            <Button variant={"outline"}>See more</Button>
-          </Link>
         </div>
       </div>
     </div>
