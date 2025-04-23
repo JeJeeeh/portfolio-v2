@@ -68,20 +68,31 @@ export default function WorkSection() {
           growth
         </p>
       </HomeHeader>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-4">
         {workData.map((work, index) => (
           <WorkCard ref={cardsRef[index]} key={index} data={work} />
         ))}
       </div>
       <div
         ref={descriptionRef}
-        className="flex flex-col text-[var(--gray-accent)] text-center"
+        className="text-xs lg:text-base flex flex-col text-[var(--gray-accent)] text-center"
       >
-        <p>I'm excited to find the next company where I can make an impact</p>
-        <p>
-          while continuing to grow.{" "}
-          <span className="text-[var(--white)]"> Could it be yours?</span>
-        </p>
+        <div className="hidden lg:inline-block">
+          <p>I'm excited to find the next company where I can make an impact</p>
+          <p>
+            while continuing to grow.{" "}
+            <span className="text-[var(--white)]"> Could it be yours?</span>
+          </p>
+        </div>
+        <div className="inline-block lg:hidden">
+          <p>
+            I'm excited to find the next company where I can make an impact
+            while continuing to grow.
+          </p>
+          <p>
+            <span className="text-[var(--white)]"> Could it be yours?</span>
+          </p>
+        </div>
       </div>
     </div>
   );

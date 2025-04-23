@@ -7,7 +7,6 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "../ui/chart";
-import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 

@@ -1,3 +1,5 @@
+import { navbarStyling } from "@/config/stylingConfig";
+
 export default function ContactLayout({
   form,
   detail,
@@ -10,7 +12,7 @@ export default function ContactLayout({
   return (
     <div className="bg-[var(--black)] w-full text-[var(--white)]">
       {/* navbar placholder */}
-      <div className="w-full h-38" />
+      <div className={`w-full ${navbarStyling.totalHeight}`} />
       {form}
       {detail}
       {resume}

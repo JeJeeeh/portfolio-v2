@@ -77,7 +77,10 @@ export default function ProjectsSection() {
           experience
         </p>
       </HomeHeader>
-      <div className="flex flex-col space-y-16 items-center" id="home-projects">
+      <div
+        className="flex flex-col space-y-8 lg:space-y-16 items-center"
+        id="home-projects"
+      >
         {higlightProjects.map((project, index) => (
           <HomeProjectCard key={index} data={project} />
         ))}
@@ -85,7 +88,7 @@ export default function ProjectsSection() {
       <div className="flex justify-center">
         <Link
           href={"/projects"}
-          className="relative inline-block font-semibold
+          className="relative text-sm md:text-base inline-block font-semibold
           text-current transition-colors duration-300 
           hover:text-[var(--gray-accent)] 
           after:block after:h-[2px] after:bg-[var(--gray-accent)] 

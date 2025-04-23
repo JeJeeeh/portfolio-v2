@@ -54,15 +54,15 @@ export default function ProjectsPage() {
       ref={containerRef}
       className={`flex flex-col items-center ${getDefaultPageStyle()}`}
     >
-      <h2 ref={headerRef} className="text-5xl font-semibold">
+      <h2 ref={headerRef} className="text-3xl md:text-5xl font-semibold">
         Projects
       </h2>
-      <div className="flex flex-col space-y-16 w-full">
+      <div className="flex flex-col space-y-8 md:space-y-16 w-full">
         {projectData.map((project, index) => (
           <div
             key={index}
             id="project-projects"
-            className="flex flex-col space-y-16"
+            className="flex flex-col space-y-8 md:space-y-16"
           >
             <ProjectProjectCard data={project} />
             {index < projectData.length - 1 && (

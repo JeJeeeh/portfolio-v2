@@ -20,14 +20,14 @@ export default function ResumeWorkCard({ data }: Props) {
   };
 
   return (
-    <div className="bg-[var(--white-accent)] rounded-md p-6 flex flex-col items-start space-y-2">
+    <div className="bg-[var(--white-accent)] rounded-md p-3 md:p-6 flex flex-col items-start space-y-1 md:space-y-2">
       <Link href={data.company.url}>
-        <h4 className="text-3xl font-semibold transition-colors duration-200 hover:text-[var(--gray-accent)]">
+        <h4 className="text-xl md:text-3xl font-semibold transition-colors duration-200 hover:text-[var(--gray-accent)]">
           {data.company.name}
         </h4>
       </Link>
 
-      <div>
+      <div className="text-xs md:text-base">
         <p>{data.position}</p>
         <p className="text-[var(--gray-accent)]">
           {data.year.start === data.year.end
@@ -37,7 +37,7 @@ export default function ResumeWorkCard({ data }: Props) {
       </div>
       {data.content && (
         <CardContentSlide opened={opened}>
-          <div className="my-2 text-[var(--gray-accent)]">
+          <div className="text-xs md:text-base my-2 text-[var(--gray-accent)]">
             <p dangerouslySetInnerHTML={{ __html: data.content }} />
           </div>
         </CardContentSlide>

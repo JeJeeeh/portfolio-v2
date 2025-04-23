@@ -14,16 +14,18 @@ const WorkCard = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
   return (
     <div
       ref={containerRef}
-      className="bg-[var(--black-accent)] rounded-md p-6 flex flex-col space-y-2"
+      className="bg-[var(--black-accent)] rounded-md p-3 lg:p-6 flex flex-col space-y-1 lg:space-y-2"
     >
       <Link href={data.company.url}>
-        <h5 className="text-3xl font-semibold duration-200 transition-colors hover:text-[var(--gray)]">
+        <h5 className="text-lg lg:text-3xl font-semibold duration-200 transition-colors hover:text-[var(--gray)]">
           {data.company.name}
         </h5>
       </Link>
       <div>
-        <p className="text-xl">{data.position}</p>
-        <p className="text-[var(--gray)]">{data.project}</p>
+        <p className="text-base lg:text-xl">{data.position}</p>
+        <p className="text-xs lg:text-base text-[var(--gray)]">
+          {data.project}
+        </p>
       </div>
     </div>
   );

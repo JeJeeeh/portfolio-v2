@@ -27,7 +27,7 @@ const TestimonialCard = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
   return (
     <div
       ref={containerRef}
-      className="bg-[var(--white-accent)] w-full rounded-md p-6 flex flex-col items-start space-y-2"
+      className="bg-[var(--white-accent)] w-full rounded-md p-3 lg:p-6 flex flex-col items-start space-y-2"
     >
       <div className="flex items-center space-x-4">
         <Avatar src={data.imageUrl || ""} alt={data.alt} />
@@ -35,10 +35,10 @@ const TestimonialCard = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
           className="duration-200 transition-colors hover:text-[var(--gray-accent)]"
           href={data.link || ""}
         >
-          <p className="text-2xl font-semibold">{data.name}</p>
+          <p className="text-lg lg:text-2xl font-semibold">{data.name}</p>
         </Link>
       </div>
-      <p className="text-[var(--gray-accent)] text-lg">
+      <p className="text-[var(--gray-accent)] text-sm lg:text-lg">
         {data.role} @{" "}
         <Link
           className="duration-200 transition-colors hover:text-[var(--black-accent)]"
@@ -48,7 +48,7 @@ const TestimonialCard = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
         </Link>
       </p>
       <CardContentSlide opened={opened}>
-        <div className="my-2 text-[var(--gray-accent)]">
+        <div className="text-xs lg:text-base my-2 text-[var(--gray-accent)]">
           {data.body.map((content, index) => (
             <p key={index}>{content}</p>
           ))}
@@ -57,6 +57,7 @@ const TestimonialCard = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
       <Button
         className="bg-[var(--gray)] hover:bg-[var(--gray-accent)] text-[var(--black)]"
         onClick={toggleOpen}
+        size={"sm"}
       >
         <motion.div
           animate={{ rotate: opened ? 180 : 0 }}
@@ -64,7 +65,9 @@ const TestimonialCard = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
         >
           <DownIcon />
         </motion.div>{" "}
-        <span className="ml-2">{opened ? "See less" : "See more"}</span>
+        <span className="text-xs lg:text-base ml-2">
+          {opened ? "See less" : "See more"}
+        </span>
       </Button>
     </div>
   );

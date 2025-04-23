@@ -55,14 +55,14 @@ export default function SummarySection() {
           platforms
         </p>
       </HomeHeader>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {summaryData.map((summary, index) => (
           <div
             key={index}
             ref={(el) => {
               if (el) cardsRef.current[index] = el;
             }}
-            className="bg-[var(--white-accent)] rounded-md p-6"
+            className="text-xs lg:text-base bg-[var(--white-accent)] rounded-md p-3 lg:p-6"
           >
             {summary}
           </div>

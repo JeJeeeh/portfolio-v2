@@ -88,7 +88,7 @@ export default function SkillsChartContainer() {
   } satisfies ChartConfig;
 
   return (
-    <div className="grid grid-cols-2 gap-4" ref={containerRef}>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4" ref={containerRef}>
       <div className="flex flex-col items-center space-y-4">
         <div
           className="w-full"
@@ -105,7 +105,7 @@ export default function SkillsChartContainer() {
             trigger={containerRef.current}
           />
         </div>
-        <p>Technology</p>
+        <p className="text-xs lg:text-base">Technology</p>
       </div>
       <div className="flex flex-col items-center space-y-4">
         <div
@@ -124,7 +124,7 @@ export default function SkillsChartContainer() {
           />
         </div>
 
-        <p>Framework</p>
+        <p className="text-xs lg:text-base">Framework</p>
       </div>
     </div>
   );

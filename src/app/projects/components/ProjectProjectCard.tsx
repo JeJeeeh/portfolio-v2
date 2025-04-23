@@ -20,37 +20,45 @@ const ProjectProjectCard = forwardRef<HTMLDivElement, Props>(
     return (
       <div
         ref={containerRef}
-        className="flex space-x-4 items-center w-full h-[250px]"
+        className="flex flex-col md:flex-row space-x-4 items-center w-full h-auto md:h-[250px]"
       >
         {/* project image */}
-        <div className="h-full aspect-video bg-gray-500 projectcard-image"></div>
+        <div className="hidden md:inline-block h-full aspect-video bg-gray-500 projectcard-image"></div>
 
         {/* project content */}
         <div className="flex flex-col space-y-4 grow h-full">
           <div>
-            <div className="text-3xl font-semibold projectcard-name">
+            <div className="text-xl md:text-3xl font-semibold projectcard-name">
               {data.name}
             </div>
-            <div className="text-[var(--gray-accent)] projectcard-introduction">
+            <div className="text-xs md:text-base text-[var(--gray-accent)] projectcard-introduction">
               {data.introduction}
             </div>
           </div>
-          <div className="flex space-x-4 projectcard-tech">
+          <div className="flex space-x-2 md:space-x-4 projectcard-tech">
             {data.languages.map((tech, index) => (
               <div key={index}>
-                <TechstackIcon className="h-[24px]" tech={tech} />
+                <TechstackIcon
+                  className="h-[18px] md:h-[24px]"
+                  tech={tech}
+                  label
+                />
               </div>
             ))}
             {data.frameworks.map((tech, index) => (
               <div key={index}>
-                <TechstackIcon className="h-[24px]" tech={tech} />
+                <TechstackIcon
+                  className="h-[18px] md:h-[24px]"
+                  tech={tech}
+                  label
+                />
               </div>
             ))}
           </div>
-          <div className="flex flex-wrap gap-2 projectcard-tags">
+          <div className="flex flex-wrap gap-1 md:gap-2 projectcard-tags">
             {data.tags.map((tag, index) => (
               <div
-                className="border border-[var(--gray-accent)] text-[var(--gray-accent)] rounded-xl text-sm px-2 py-1"
+                className="border border-[var(--gray-accent)] text-[var(--gray-accent)] rounded-xl text-xs md:text-sm px-2 py-1"
                 key={index}
               >
                 {tag}
@@ -60,7 +68,9 @@ const ProjectProjectCard = forwardRef<HTMLDivElement, Props>(
           <div className="grow "></div>
           <div className="projectcard-button">
             <Link href={`/projects/${data.slug}`}>
-              <Button variant={"outline"}>See more</Button>
+              <Button variant={"outline"} className="text-xs md:text-base">
+                See more
+              </Button>
             </Link>
           </div>
         </div>

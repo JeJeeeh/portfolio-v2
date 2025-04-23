@@ -17,30 +17,38 @@ const HomeProjectCard = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col space-y-4 space-x-4 w-[50%] items-center"
+      className="flex flex-col space-y-2 lg:space-y-4 space-x-4 w-[90%] lg:w-[50%] items-center"
     >
       {/* project image */}
-      <div className="h-[250px] aspect-video bg-gray-500 projectcard-image"></div>
+      <div className="h-[150px] lg:h-[250px] aspect-video bg-gray-500 projectcard-image"></div>
 
       {/* project content */}
-      <div className="flex flex-col space-y-4 items-center">
-        <div className="text-3xl font-semibold projectcard-name">
+      <div className="flex flex-col space-y-2 lg:space-y-4 items-center">
+        <div className="text-lg lg:text-3xl font-semibold projectcard-name">
           {data.name}
         </div>
         <div className="flex space-x-4 projectcard-tech">
           {data.languages.map((tech, index) => (
             <div key={index}>
-              <TechstackIcon className="h-[24px]" tech={tech} />
+              <TechstackIcon
+                className="h-[18px] md:h-[20px] lg:h-[24px]"
+                tech={tech}
+                label
+              />
             </div>
           ))}
           {data.frameworks.map((tech, index) => (
             <div key={index}>
-              <TechstackIcon className="h-[24px]" tech={tech} />
+              <TechstackIcon
+                className="h-[18px] md:h-[20px] lg:h-[24px]"
+                tech={tech}
+                label
+              />
             </div>
           ))}
         </div>
         <Separator className="bg-black projectcard-separator" />
-        <div className="text-[var(--gray-accent)] text-center flex grow projectcard-description">
+        <div className="text-xs lg:text-base text-[var(--gray-accent)] text-center flex grow projectcard-description">
           {data.description}
         </div>
       </div>

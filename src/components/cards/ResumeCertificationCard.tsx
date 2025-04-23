@@ -20,9 +20,9 @@ export default function ResumeCertificationCard({ data }: Props) {
   };
 
   return (
-    <div className="bg-[var(--white-accent)] rounded-md p-6 flex flex-col items-start space-y-2">
-      <p className="text-3xl font-semibold">{data.name}</p>
-      <div>
+    <div className="bg-[var(--white-accent)] rounded-md p-3 md:p-6 flex flex-col items-start space-y-1 md:space-y-2">
+      <p className="text-xl md:text-3xl font-semibold">{data.name}</p>
+      <div className="text-xs md:text-base">
         <p>{data.title}</p>
         <p className="text-[var(--gray-accent)]">{data.year}</p>
       </div>
@@ -44,7 +44,9 @@ export default function ResumeCertificationCard({ data }: Props) {
         >
           <DownIcon />
         </motion.div>{" "}
-        <span className="ml-2">{opened ? "See less" : "See more"}</span>
+        <span className="md:ml-2 text-xs md:text-base">
+          {opened ? "See less" : "See more"}
+        </span>
       </Button>
     </div>
   );

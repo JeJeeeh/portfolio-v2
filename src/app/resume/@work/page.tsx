@@ -38,7 +38,7 @@ export default function ResumeWorkSection() {
       ref={containerRef}
       className={`flex flex-col space-y-[var(--content-space-y)] px-[var(--content-px)] py-[var(--content-py)] ${getDefaultPageStyle()}`}
     >
-      <h2 ref={titleRef} className="text-5xl font-semibold">
+      <h2 ref={titleRef} className="text-2xl md:text-5xl font-semibold">
         Work Experience
       </h2>
       <div className="grid grid-cols-1 gap-4 w-full">

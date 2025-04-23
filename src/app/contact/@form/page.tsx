@@ -50,7 +50,7 @@ export default function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="grid grid-cols-2 gap-4 w-xl"
+        className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 w-full md:w-xl"
       >
         <FormField
           control={form.control}
@@ -59,7 +59,7 @@ export default function ContactForm() {
             <FormItem>
               <FormControl>
                 <Input
-                  className="bg-[var(--white)] text-[var(--black)] md:text-lg py-6 px-3"
+                  className="bg-[var(--white)] text-[var(--black)] text-base md:text-lg py-2 md:py-6 px-2 md:px-3 col-span-1"
                   placeholder="Name"
                   {...field}
                 />
@@ -75,7 +75,7 @@ export default function ContactForm() {
             <FormItem>
               <FormControl>
                 <Input
-                  className="bg-[var(--white)] text-[var(--black)] md:text-lg py-6 px-3"
+                  className="bg-[var(--white)] text-[var(--black)] md:text-lg py-2 md:py-6 px-2 md:px-3 col-span-1"
                   placeholder="Subject"
                   {...field}
                 />
@@ -88,10 +88,10 @@ export default function ContactForm() {
           control={form.control}
           name="message"
           render={({ field }) => (
-            <FormItem className="col-span-2">
+            <FormItem className="col-span-1 md:col-span-2">
               <FormControl>
                 <Textarea
-                  className="bg-[var(--white)] text-[var(--black)] py-3 px-3 md:text-lg min-h-48"
+                  className="bg-[var(--white)] text-[var(--black)] py-2 md:py-3 px-2 md:px-3 md:text-lg min-h-48"
                   placeholder="Message"
                   {...field}
                 />
@@ -103,7 +103,7 @@ export default function ContactForm() {
         <Button
           type="submit"
           variant={"outline"}
-          className="col-span-2 bg-transparent hover:bg-[var(--black-accent)] hover:border-[var(--black-accent)] hover:text-[var(--white)] py-6 text-lg"
+          className="col-span-1 md:col-span-2 bg-transparent hover:bg-[var(--black-accent)] hover:border-[var(--black-accent)] hover:text-[var(--white)] py-3 md:py-6 text-base md:text-lg"
         >
           Send
         </Button>

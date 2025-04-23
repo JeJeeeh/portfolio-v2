@@ -49,13 +49,16 @@ export default function ResumeHeaderSection() {
       ref={containerRef}
       className={`flex flex-col items-center ${getDefaultPageStyle()}`}
     >
-      <div className="flex flex-col space-y-4 items-center">
-        <div ref={titleRef} className="text-6xl font-semibold">
+      <div className="flex flex-col space-y-2 md:space-y-4 items-center">
+        <div ref={titleRef} className="text-3xl md:text-6xl font-semibold">
           <p>Jason</p>
           <p>Jonathan</p>
           <p>Effendi</p>
         </div>
-        <div ref={tagRef} className="text-[var(--gray-accent)] text-center">
+        <div
+          ref={tagRef}
+          className="text-xs md:text-base text-[var(--gray-accent)] text-center"
+        >
           <p>
             I'm a full-stack developer with a passion for creating and solving
             problems.
@@ -67,15 +70,17 @@ export default function ResumeHeaderSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
         {descriptionData.map((desc, index) => (
           <div
             ref={descriptionsRef[index]}
             key={index}
-            className="flex flex-col space-y-4"
+            className="flex flex-col space-y-2 md:space-y-4"
           >
-            <h3 className="text-4xl font-semibold">{desc.title}</h3>
-            <p className="text-[var(--gray-accent)]">{desc.body}</p>
+            <h3 className="text-xl md:text-4xl font-semibold">{desc.title}</h3>
+            <p className="text-xs md:text-base text-[var(--gray-accent)]">
+              {desc.body}
+            </p>
           </div>
         ))}
       </div>

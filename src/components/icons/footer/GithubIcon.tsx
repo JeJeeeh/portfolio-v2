@@ -6,8 +6,8 @@ export default function GithubIcon() {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       fill="#FFFFFF"
-      height={"24px"}
-      width={"24px"}
+      height={"100%"}
+      width={"100%"}
       className={`fill-[var(--white)]`}
     >
       <g id="SVGRepo_iconCarrier">

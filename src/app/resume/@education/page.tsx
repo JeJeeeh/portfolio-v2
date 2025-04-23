@@ -15,11 +15,11 @@ interface EducationCardProps {
 
 const EducationCard = ({ data }: EducationCardProps) => {
   return (
-    <div className="bg-[var(--white-accent)] rounded-md p-6 flex flex-col items-start space-y-2">
-      <p className="text-3xl font-semibold">{data.schoolName}</p>
+    <div className="bg-[var(--white-accent)] rounded-md p-3 md:p-6 flex flex-col items-start space-y-1 md:space-y-2">
+      <p className="text-xl md:text-3xl font-semibold">{data.schoolName}</p>
       <div>
         <p>{data.major}</p>
-        <p className="text-[var(--gray-accent)]">{`${data.year.start} - ${data.year.end}`}</p>
+        <p className="text-xs md:text-base text-[var(--gray-accent)]">{`${data.year.start} - ${data.year.end}`}</p>
       </div>
     </div>
   );
@@ -31,9 +31,9 @@ interface LanguageCardProps {
 
 const LanguageCard = ({ data }: LanguageCardProps) => {
   return (
-    <div className="bg-[var(--white-accent)] rounded-md p-6 flex flex-col items-start space-y-2">
-      <p className="text-3xl font-semibold">Language</p>
-      <div>
+    <div className="bg-[var(--white-accent)] rounded-md p-3 md:p-6 flex flex-col items-start space-y-1 md:space-y-2">
+      <p className="text-xl md:text-3xl font-semibold">Language</p>
+      <div className="text-xs md:text-base">
         {data.map((language, index) => (
           <p key={index}>{`${language.language}: ${language.proficiency}`}</p>
         ))}
@@ -73,10 +73,10 @@ export default function ResumeEducationSection() {
       ref={containerRef}
       className={`flex flex-col ${getDefaultPageStyle()} `}
     >
-      <h2 ref={titleRef} className="text-5xl font-semibold">
+      <h2 ref={titleRef} className="text-3xl md:text-5xl font-semibold">
         Education and language
       </h2>
-      <div className="grid grid-cols-1 gap-4 w-full">
+      <div className="grid grid-cols-1 gap-2 md:gap-4 w-full">
         {educationData.map((education, index) => (
           <div key={index} className="resume-educationcard">
             <EducationCard data={education} />

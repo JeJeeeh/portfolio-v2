@@ -74,11 +74,14 @@ export default function ResumeTechstackSection() {
       ref={containerRef}
       className={`flex flex-col text-[var(--black)] ${getDefaultPageStyle()}`}
     >
-      <div className="flex flex-col items-center space-y-4 items-center">
-        <h2 ref={titleRef} className="text-5xl font-semibold">
+      <div className="flex flex-col items-center space-y-2 md:space-y-4 items-center">
+        <h2 ref={titleRef} className="text-2xl md:text-5xl font-semibold">
           Tech-stacks
         </h2>
-        <p ref={tagRef} className="text-center text-[var(--gray-accent)] px-12">
+        <p
+          ref={tagRef}
+          className="text-xs md:text-base text-center text-[var(--gray-accent)] px-6 md:px-12"
+        >
           Throughout my career, I have worked with a variety of technologies
           across the full stack. From front-end frameworks to back-end systems
           and databases, I have gained hands-on experience with tools that help
@@ -88,10 +91,10 @@ export default function ResumeTechstackSection() {
       </div>
       {techstackData.map((techstack, index) => (
         <div key={index} className="flex flex-col space-y-4">
-          <h4 className="text-4xl font-semibold techstack-title">
+          <h4 className="text-xl md:text-4xl font-semibold techstack-title">
             {techstack.title}
           </h4>
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
             {techstack.data.map((tech, cardIndex) => (
               <div key={cardIndex} className="techstack-card">
                 <TechstackCard tech={tech} />

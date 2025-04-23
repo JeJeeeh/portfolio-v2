@@ -30,10 +30,12 @@ export default function AboutFormLayout({
       ref={containerRef}
       className={`flex flex-col items-center ${getDefaultPageStyle()} `}
     >
-      <h2 ref={titleRef} className="text-5xl font-semibold">
+      <h2 ref={titleRef} className="text-3xl md:text-5xl font-semibold">
         Contact me
       </h2>
-      <div ref={formRef}>{children}</div>
+      <div ref={formRef} className="w-full">
+        {children}
+      </div>
     </div>
   );
 }

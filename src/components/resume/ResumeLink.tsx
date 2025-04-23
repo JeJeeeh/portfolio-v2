@@ -33,10 +33,12 @@ export default function ResumeLink() {
     >
       <div
         ref={contentRef}
-        className="flex flex-col space-y-4 items-center rounded-xl py-[var(--content-py)] bg-[var(--black-accent)]"
+        className="flex flex-col space-y-2 lg:space-y-4 items-center rounded-xl py-[var(--padding-y-sm)] md:py-[var(--padding-y-md)] lg:py-[var(--padding-y-lg)] bg-[var(--black-accent)]"
       >
-        <p className="text-5xl font-semibold">Resume</p>
-        <p className="text-[var(--gray)]">Read more about my experience</p>
+        <p className="text-xl lg:text-5xl font-semibold">Resume</p>
+        <p className="text-xs md:text-base text-[var(--gray)]">
+          Read more about my experience
+        </p>
         <Link href={"/resume"}>
           <Button variant={"outline"} className="bg-transparent">
             See Resume

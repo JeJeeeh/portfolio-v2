@@ -5,7 +5,7 @@ export default function ProjectsLayout({
 }>) {
   return (
     <div className="w-full">
-      <div className="w-full h-18" />
+      <div className="w-full h-12 md:h-18" />
       {children}
     </div>
   );

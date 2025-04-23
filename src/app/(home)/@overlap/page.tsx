@@ -66,16 +66,16 @@ export default function Overlap() {
 
   return (
     <div
-      className={`relative h-[12vh] w-full bg-[var(--black-accent)] flex justify-center items-center filter grayscale px-[var(--padding-x-sm)] md:px-[var(--padding-x-md)] lg:px-[var(--padding-x-lg)]`}
+      className={`relative h-[6vh] lg:h-[12vh] w-full bg-[var(--black-accent)] flex justify-center items-center filter grayscale px-[var(--padding-x-sm)] md:px-[var(--padding-x-md)] lg:px-[var(--padding-x-lg)]`}
     >
       <div className="w-[100%] pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 inset-0 z-10 bg-gradient-to-r from-[var(--black-accent)] from-10% via-transparent to-[var(--black-accent)] to-90% opacity-100" />
       <div className="relative w-[100%] overflow-hidden">
-        <div ref={trackRef} className="flex space-x-16 w-max">
+        <div ref={trackRef} className="flex space-x-8 lg:space-x-16 w-max">
           {displayedTechs.map((tech) => (
             <TechstackIcon
               tech={tech}
               key={tech}
-              className="h-[6vh] w-auto home-techcard"
+              className="h-[3vh] lg:h-[6vh] w-auto home-techcard"
             />
           ))}
         </div>

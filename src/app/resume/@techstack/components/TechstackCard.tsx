@@ -13,10 +13,10 @@ const TechstackCard = forwardRef<HTMLDivElement, Props>(({ tech }, ref) => {
   return (
     <div
       ref={containerRef}
-      className="rounded-md bg-[var(--white-accent)] p-6 flex flex-col items-start space-y-2"
+      className="rounded-md bg-[var(--white-accent)] p-3 md:p-6 flex flex-col items-start space-y-2"
     >
-      <TechstackIcon tech={tech} className="h-24px md:h-[36px]" />
-      <p className="text-xl">{tech}</p>
+      <TechstackIcon tech={tech} className="h-[24px] md:h-[36px]" />
+      <p className="text-xs md:text-xl">{tech}</p>
     </div>
   );
 });

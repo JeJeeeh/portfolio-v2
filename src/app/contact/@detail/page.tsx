@@ -15,9 +15,9 @@ import { useRef } from "react";
 
 export default function ContactDetailSection() {
   const detailCardStyle =
-    "flex flex-col space-y-2 p-6 rounded-md bg-[var(--black-accent)] text-[var(--white)] contact-detailcard";
-  const detailTitleStyle = "text-2xl font-semibold";
-  const detailDataStyle = "text-[var(--gray)]";
+    "flex flex-col space-y-1 md:space-y-2 p-3 md:p-6 rounded-md bg-[var(--black-accent)] text-[var(--white)] contact-detailcard";
+  const detailTitleStyle = "text-lg md:text-2xl font-semibold";
+  const detailDataStyle = "text-xs md:text-base text-[var(--gray)]";
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -45,8 +45,8 @@ export default function ContactDetailSection() {
       ref={containerRef}
       className={`flex flex-col bg-[var(--black)] text-[var(--white)] ${getDefaultPageStyle()}`}
     >
-      <div className="grid grid-cols-4 gap-4">
-        <div className={`${detailCardStyle} col-span-2`}>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
+        <div className={`${detailCardStyle} md:col-span-2`}>
           <div className="flex space-x-2 items-center">
             <RoleIcon />
             <p className={detailTitleStyle}>Role</p>
@@ -74,7 +74,7 @@ export default function ContactDetailSection() {
           </div>
           <p className={detailDataStyle}>Indonesia</p>
         </div>
-        <div className={`${detailCardStyle} col-span-2`}>
+        <div className={`${detailCardStyle} md:col-span-2`}>
           <div className="flex space-x-2 items-center">
             <LanguageIcon />
             <p className={detailTitleStyle}>Language</p>

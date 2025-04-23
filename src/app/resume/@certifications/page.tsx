@@ -38,11 +38,14 @@ export default function ResumeCertificationsSection() {
       ref={containerRef}
       className={`flex flex-col text-[var(--black)] ${getDefaultPageStyle()} `}
     >
-      <div className="flex flex-col items-center space-y-4 items-center">
-        <h2 ref={titleRef} className="text-5xl font-semibold">
+      <div className="flex flex-col items-center space-y-2 md:space-y-4 items-center">
+        <h2 ref={titleRef} className="text-2xl md:text-5xl font-semibold">
           Certifications
         </h2>
-        <p ref={tagRef} className="text-center text-[var(--gray-accent)] px-12">
+        <p
+          ref={tagRef}
+          className="text-xs md:text-base text-center text-[var(--gray-accent)] px-6 md:px-12"
+        >
           Throughout my career, I have pursued various certifications to expand
           my knowledge and stay up to date with industry standards. These
           certifications have helped me develop expertise in different
@@ -50,7 +53,7 @@ export default function ResumeCertificationsSection() {
           are the certifications I have earned throughout my journey.
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
         {certificationData.map((cert, index) => (
           <div
             key={index}
