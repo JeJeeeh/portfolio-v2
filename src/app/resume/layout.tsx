@@ -5,6 +5,7 @@ export default function ResumeLayout({
   background,
   certifications,
   education,
+  children,
 }: Readonly<{
   header: React.ReactNode;
   techstack: React.ReactNode;
@@ -12,6 +13,7 @@ export default function ResumeLayout({
   background: React.ReactNode;
   certifications: React.ReactNode;
   education: React.ReactNode;
+  children: React.ReactNode;
 }>) {
   return (
     <div className="w-full text-[var(--black)]">
@@ -23,6 +25,7 @@ export default function ResumeLayout({
       {background}
       {certifications}
       {education}
+      {children}
     </div>
   );
 }

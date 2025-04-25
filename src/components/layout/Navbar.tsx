@@ -6,12 +6,20 @@ import ResumeSecondary from "@/components/secondaryNav/ResumeSecondary";
 import { navbarStyling } from "@/config/stylingConfig";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import HamburgerIcon from "../icons/navbar/HamburgerIcon";
+import MobileNav from "./MobileNav";
+import Link from "next/link";
 
 export default function Navbar() {
   const pathname = usePathname();
 
   const [visible, setVisible] = useState<boolean>(true);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
+  const [hamburgerVisible, setHamburgerVisible] = useState<boolean>(false);
+
+  const toggleHamburger = () => {
+    setHamburgerVisible(!hamburgerVisible);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +36,18 @@ export default function Navbar() {
     };
   }, [lastScrollY]);
 
+  useEffect(() => {
+    if (hamburgerVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [hamburgerVisible]);
+
   return (
     <>
       <nav
@@ -37,9 +57,11 @@ export default function Navbar() {
           visible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="text-2xl md:text-5xl font-bold text-[var(--white)]">
-          JJE
-        </div>
+        <Link href={"/"}>
+          <div className="text-2xl md:text-5xl font-bold text-[var(--white)]">
+            JJE
+          </div>
+        </Link>
         <div className="flex space-x-12 hidden md:inline-block">
           <NavLink href="/" pathname={pathname}>
             Home
@@ -54,9 +76,16 @@ export default function Navbar() {
             Contact
           </NavLink>
         </div>
+        <div className="inline-block md:hidden">
+          <HamburgerIcon
+            isOpen={hamburgerVisible}
+            toggleOpen={toggleHamburger}
+          />
+        </div>
       </nav>
       {pathname === "/contact" && <ContactSecondary navbarVisible={visible} />}
       {pathname === "/resume" && <ResumeSecondary navbarVisible={visible} />}
+      <MobileNav hamburgerVisible={hamburgerVisible} pathname={pathname} />
     </>
   );
 }

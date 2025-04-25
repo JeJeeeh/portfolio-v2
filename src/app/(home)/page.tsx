@@ -6,28 +6,18 @@ import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import HeroSection from "./HeroSection/page";
+import Overlap from "./Overlap/page";
+import SummarySection from "./SummarySection/page";
+import SkillSection from "./SkillsSection/page";
+import TestimonialsSection from "./TestimonialsSection/page";
+import WorkSection from "./WorkSection/page";
+import ProjectsSection from "./ProjectsSection/page";
+import ResumeSection from "./ResumeSection/page";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function HomeLayout({
-  hero,
-  overlap,
-  summary,
-  skills,
-  testimonials,
-  work,
-  projects,
-  resume,
-}: Readonly<{
-  hero: React.ReactNode;
-  overlap: React.ReactNode;
-  summary: React.ReactNode;
-  skills: React.ReactNode;
-  testimonials: React.ReactNode;
-  work: React.ReactNode;
-  projects: React.ReactNode;
-  resume: React.ReactNode;
-}>) {
+export default function HomePage() {
   const bgRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const overlapRef = useRef<HTMLDivElement>(null);
@@ -105,7 +95,7 @@ export default function HomeLayout({
         ref={heroRef}
         className="relative flex items-center justify-center h-[88vh]"
       >
-        {hero}
+        <HeroSection />
       </div>
 
       {/* Overlapping Section */}
@@ -113,13 +103,13 @@ export default function HomeLayout({
         ref={overlapRef}
         className="absolute z-50 flex flex-col min-h-[12vh] w-full"
       >
-        {overlap}
-        {summary}
-        {skills}
-        {testimonials}
-        {work}
-        {projects}
-        {resume}
+        <Overlap />
+        <SummarySection />
+        <SkillSection />
+        <TestimonialsSection />
+        <WorkSection />
+        <ProjectsSection />
+        <ResumeSection />
         <Footer />
       </div>
     </div>

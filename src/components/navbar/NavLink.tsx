@@ -4,15 +4,21 @@ interface Props {
   href: string;
   pathname: string;
   children: React.ReactNode;
+  className?: string;
 }
 
-export default function NavLink({ href, pathname, children }: Props) {
+export default function NavLink({
+  href,
+  pathname,
+  children,
+  className = "",
+}: Props) {
   const isActive = pathname === href;
 
   return (
     <Link
       href={href}
-      className={`text-base font-medium ${
+      className={`${className} font-medium ${
         isActive
           ? "text-[var(--white)]"
           : "text-[var(--gray)] transition-color duration-300 hover:text-[var(--white)]"

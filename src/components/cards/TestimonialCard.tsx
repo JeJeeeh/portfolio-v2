@@ -57,7 +57,6 @@ const TestimonialCard = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
       <Button
         className="bg-[var(--gray)] hover:bg-[var(--gray-accent)] text-[var(--black)]"
         onClick={toggleOpen}
-        size={"sm"}
       >
         <motion.div
           animate={{ rotate: opened ? 180 : 0 }}

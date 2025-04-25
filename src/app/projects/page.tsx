@@ -3,7 +3,6 @@
 import { getDefaultPageStyle } from "@/config/stylingConfig";
 import { projectData } from "@/data/project";
 import ProjectProjectCard from "./components/ProjectProjectCard";
-import { Separator } from "@/components/ui/separator";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -65,9 +64,6 @@ export default function ProjectsPage() {
             className="flex flex-col space-y-8 md:space-y-16"
           >
             <ProjectProjectCard data={project} />
-            {index < projectData.length - 1 && (
-              <Separator className="bg-black projectpage-separator" />
-            )}
           </div>
         ))}
       </div>
