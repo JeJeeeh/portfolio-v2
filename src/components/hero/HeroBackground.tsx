@@ -47,14 +47,14 @@ const HeroBackground = () => {
         move: {
           enable: true,
           speed: 0.5,
-          direction: "top",
+          direction: "top" as const,
           outModes: {
-            default: "out",
+            default: "out" as const,
           },
         },
         collisions: {
           enable: true,
-          mode: "bounce",
+          mode: "bounce" as const,
         },
       },
       pauseOnBlur: true,
