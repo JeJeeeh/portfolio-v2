@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-import ScrollSmootherWrapper from "@/components/gsap/ScrollSmootherWrapper";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import PageTransition from "@/components/framer/PageTransition";
+import RootClient from "@/components/layout/RootClient";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,11 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className={`antialiased min-h-screen font-mono`}>
-        <Navbar />
-        <ScrollSmootherWrapper>
-          <PageTransition>{children}</PageTransition>
-          <Footer />
-        </ScrollSmootherWrapper>
+        <RootClient>{children}</RootClient>
       </body>
     </html>
   );

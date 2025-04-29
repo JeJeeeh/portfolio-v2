@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="text-xs md:text-base">
         &copy; {new Date().getFullYear()} Jason Jonathan Effendi
       </div>
-      <div className="flex space-x-4 h-[18px] lg:h-[14px]">
+      <div className="flex space-x-4 h-[18px] lg:h-[24px]">
         <Link href={"https://github.com/JeJeeeh"}>
           <GithubIcon />
         </Link>

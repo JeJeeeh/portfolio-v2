@@ -4,7 +4,6 @@ import { ProjectData } from "@/data/project";
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import TechstackIcon from "@/components/icons/techstacks/TechstackIcon";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 
 interface Props {

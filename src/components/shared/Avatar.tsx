@@ -12,7 +12,7 @@ interface Props {
 export default function Avatar({ src, alt }: Props) {
   return (
     <AvatarShad>
-      <AvatarImage src={src} />
+      <AvatarImage src={src} alt={alt} />
       <AvatarFallback>{alt}</AvatarFallback>
     </AvatarShad>
   );
