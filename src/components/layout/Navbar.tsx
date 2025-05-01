@@ -83,8 +83,12 @@ export default function Navbar() {
           />
         </div>
       </nav>
-      {pathname === "/contact" && <ContactSecondary navbarVisible={visible} />}
-      {pathname === "/resume" && <ResumeSecondary navbarVisible={visible} />}
+      {(pathname === "/contact" || pathname === "/contact/") && (
+        <ContactSecondary navbarVisible={visible} />
+      )}
+      {(pathname === "/resume" || pathname === "/resume/") && (
+        <ResumeSecondary navbarVisible={visible} />
+      )}
       <MobileNav hamburgerVisible={hamburgerVisible} pathname={pathname} />
     </>
   );

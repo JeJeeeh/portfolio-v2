@@ -1,5 +1,6 @@
 import { navbarStyling } from "@/config/stylingConfig";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function ContactSecondary({
   navbarVisible,
@@ -19,12 +20,14 @@ export default function ContactSecondary({
       <p className="text-[var(--white)] text-lg md:text-2xl font-medium">
         Let's connect
       </p>
-      <Button
-        variant={"outline"}
-        className="bg-transparent text-[var(--white)]"
-      >
-        LinkedIn Link
-      </Button>
+      <Link href={"https://linkedin.com/in/jason-jonathan-47006a25b"}>
+        <Button
+          variant={"outline"}
+          className="bg-transparent text-[var(--white)]"
+        >
+          LinkedIn Link
+        </Button>
+      </Link>
     </div>
   );
 }

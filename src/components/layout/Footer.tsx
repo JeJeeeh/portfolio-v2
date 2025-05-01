@@ -4,11 +4,11 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="z-1000 flex justify-between items-center mt-auto py-3 px-[var(--padding-x-sm)] lg:px-[var(--padding-x-lg)] bg-[var(--black-accent)] text-[var(--white)]">
-      <div className="text-xs md:text-base">
+    <footer className="z-1000 flex items-center mt-auto py-3 px-[var(--padding-x-sm)] md:px-[var(--padding-x-md)] lg:px-[var(--padding-x-lg)] bg-[var(--black-accent)] text-[var(--white)]">
+      <div className="text-xs md:text-base grow">
         &copy; {new Date().getFullYear()} Jason Jonathan Effendi
       </div>
-      <div className="flex space-x-4 h-[18px] lg:h-[24px]">
+      <div className="flex space-x-2 md:space-x-4 h-[18px] lg:h-[24px]">
         <Link href={"https://github.com/JeJeeeh"}>
           <GithubIcon />
         </Link>

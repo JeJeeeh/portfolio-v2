@@ -25,7 +25,7 @@ const ProjectProjectCard = forwardRef<HTMLDivElement, Props>(
         <div className="hidden md:inline-block h-full aspect-video bg-gray-500 projectcard-image"></div>
 
         {/* project content */}
-        <div className="flex flex-col space-y-4 grow h-full">
+        <div className="flex flex-col space-y-4 grow h-full w-full">
           <div>
             <div className="text-xl md:text-3xl font-semibold projectcard-name">
               {data.name}

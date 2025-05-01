@@ -36,11 +36,13 @@ export default function ResumeWorkCard({ data }: Props) {
         </p>
       </div>
       {data.content && (
-        <CardContentSlide opened={opened}>
-          <div className="text-xs md:text-base my-2 text-[var(--gray-accent)]">
-            <p dangerouslySetInnerHTML={{ __html: data.content }} />
-          </div>
-        </CardContentSlide>
+        <div className="my-2">
+          <CardContentSlide opened={opened}>
+            <div className="text-xs md:text-base text-[var(--gray-accent)]">
+              <p dangerouslySetInnerHTML={{ __html: data.content }} />
+            </div>
+          </CardContentSlide>
+        </div>
       )}
       {data.content && (
         <Button

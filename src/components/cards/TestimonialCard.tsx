@@ -47,13 +47,15 @@ const TestimonialCard = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
           {data.company.name}
         </Link>
       </p>
-      <CardContentSlide opened={opened}>
-        <div className="text-xs lg:text-base my-2 text-[var(--gray-accent)]">
-          {data.body.map((content, index) => (
-            <p key={index}>{content}</p>
-          ))}
-        </div>
-      </CardContentSlide>
+      <div className="my-2">
+        <CardContentSlide opened={opened}>
+          <div className="text-xs lg:text-base text-[var(--gray-accent)]">
+            {data.body.map((content, index) => (
+              <p key={index}>{content}</p>
+            ))}
+          </div>
+        </CardContentSlide>
+      </div>
       <Button
         className="bg-[var(--gray)] hover:bg-[var(--gray-accent)] text-[var(--black)]"
         onClick={toggleOpen}

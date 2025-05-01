@@ -26,14 +26,16 @@ export default function ResumeCertificationCard({ data }: Props) {
         <p>{data.title}</p>
         <p className="text-[var(--gray-accent)]">{data.year}</p>
       </div>
-      <CardContentSlide opened={opened}>
-        <div className="my-2 text-[var(--gray-accent)]">
-          {data.description}
-          <Link href={data.link}>
-            <span className="text-black hover:text-[var(--gray-accent)] duration-200 transition-colors">{`[Link]`}</span>
-          </Link>
-        </div>
-      </CardContentSlide>
+      <div className="my-2">
+        <CardContentSlide opened={opened}>
+          <div className="text-xs md:text-base text-[var(--gray-accent)]">
+            {data.description}
+            <Link href={data.link}>
+              <span className="text-black hover:text-[var(--gray-accent)] duration-200 transition-colors">{`[Link]`}</span>
+            </Link>
+          </div>
+        </CardContentSlide>
+      </div>
       <Button
         className="bg-[var(--gray)] hover:bg-[var(--gray-accent)] text-[var(--black)]"
         onClick={toggleOpen}
