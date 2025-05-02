@@ -5,7 +5,7 @@ import ContactSecondary from "@/components/secondaryNav/ContactSecondary";
 import ResumeSecondary from "@/components/secondaryNav/ResumeSecondary";
 import { navbarStyling } from "@/config/stylingConfig";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HamburgerIcon from "../icons/navbar/HamburgerIcon";
 import MobileNav from "./MobileNav";
 import Link from "next/link";
@@ -14,27 +14,51 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const [visible, setVisible] = useState<boolean>(true);
-  const [lastScrollY, setLastScrollY] = useState<number>(0);
+  const lastScrollY = useRef<number>(0);
   const [hamburgerVisible, setHamburgerVisible] = useState<boolean>(false);
 
   const toggleHamburger = () => {
     setHamburgerVisible(!hamburgerVisible);
   };
 
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
+
+  //     // Hide navbar when scrolling down, show it when scrolling up
+  //     setVisible(currentScrollY < lastScrollY.current);
+  //     lastScrollY.current = currentScrollY;
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [lastScrollY]);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Hide navbar when scrolling down, show it when scrolling up
-      setVisible(currentScrollY < lastScrollY);
-      setLastScrollY(currentScrollY);
+      if (currentScrollY === 0) {
+        // Always show navbar at the top
+        setVisible(true);
+      } else if (currentScrollY > lastScrollY.current) {
+        // Scrolling down
+        setVisible(false);
+      } else {
+        // Scrolling up
+        setVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollY]);
+  }, []);
 
   useEffect(() => {
     if (hamburgerVisible) {
@@ -47,8 +71,6 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [hamburgerVisible]);
-
-  console.log(pathname);
 
   return (
     <>

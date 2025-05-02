@@ -26,16 +26,11 @@ export default function HomePage() {
 
   const todoList = [
     "fix chart tooltip",
-    "fix SEO",
-    "page transtiton may sometimes flicker(?)",
     "add project images and fallback",
     "fix parallax effect",
     "add logo shrink effect",
-    "chart small media query missing label",
     "fix button media query (home page buttons)",
   ];
-
-  console.log(todoList);
 
   useGsapScrollTrigger(
     () => {

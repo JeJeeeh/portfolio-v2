@@ -1,5 +1,6 @@
 "use client";
 
+import { navbarStyling } from "@/config/stylingConfig";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ResumeLayout({
@@ -29,7 +30,7 @@ export default function ResumeLayout({
       >
         <div className="w-full text-[var(--black)]">
           {/* navbar placeholder */}
-          <div className="w-full h-38" />
+          <div className={`w-full ${navbarStyling.totalHeight}`} />
           {header}
           {techstack}
           {work}

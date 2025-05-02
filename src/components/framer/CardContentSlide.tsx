@@ -14,7 +14,6 @@ export default function CardContentSlide({ opened, children }: Props) {
   useLayoutEffect(() => {
     if (contentRef.current) {
       const rect = contentRef.current.getBoundingClientRect();
-      console.log(rect.height);
       setHeight(rect.height);
     }
   }, [children]);
