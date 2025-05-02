@@ -48,6 +48,8 @@ export default function Navbar() {
     };
   }, [hamburgerVisible]);
 
+  console.log(pathname);
+
   return (
     <>
       <nav

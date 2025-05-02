@@ -2,17 +2,27 @@
 
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const HeroBackground = () => {
   const [init, setInit] = useState(false);
+  const engineInitialized = useRef(false);
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
+    if (!engineInitialized.current) {
+      initParticles();
+    } else {
       setInit(true);
-    });
+    }
+
+    async function initParticles() {
+      const { initParticlesEngine } = await import("@tsparticles/react");
+      await initParticlesEngine(async (engine) => {
+        await loadSlim(engine);
+      });
+      engineInitialized.current = true;
+      setInit(true);
+    }
   }, []);
 
   const options = useMemo(
@@ -62,6 +72,8 @@ const HeroBackground = () => {
     }),
     []
   );
+
+  if (!init) return null;
 
   return (
     <Particles

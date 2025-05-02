@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 import { itemsSlideIn, slideIn } from "@/config/gsapConfig";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ProjectsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,24 +50,33 @@ export default function ProjectsPage() {
   );
 
   return (
-    <div
-      ref={containerRef}
-      className={`flex flex-col items-center ${getDefaultPageStyle()}`}
-    >
-      <h2 ref={headerRef} className="text-3xl md:text-5xl font-semibold">
-        Projects
-      </h2>
-      <div className="flex flex-col space-y-8 md:space-y-16 w-full">
-        {projectData.map((project, index) => (
-          <div
-            key={index}
-            id="project-projects"
-            className="flex flex-col space-y-8 md:space-y-16"
-          >
-            <ProjectProjectCard data={project} />
+    <AnimatePresence mode="wait">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      >
+        <div
+          ref={containerRef}
+          className={`flex flex-col items-center ${getDefaultPageStyle()}`}
+        >
+          <h2 ref={headerRef} className="text-3xl md:text-5xl font-semibold">
+            Projects
+          </h2>
+          <div className="flex flex-col space-y-8 md:space-y-16 w-full">
+            {projectData.map((project, index) => (
+              <div
+                key={index}
+                id="project-projects"
+                className="flex flex-col space-y-8 md:space-y-16"
+              >
+                <ProjectProjectCard data={project} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 }

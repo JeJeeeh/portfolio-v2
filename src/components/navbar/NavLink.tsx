@@ -13,7 +13,8 @@ export default function NavLink({
   children,
   className = "",
 }: Props) {
-  const parsedPathname = pathname.replace(/\/$/, "");
+  const parsedPathname =
+    pathname === "/" ? pathname : pathname.replace(/\/$/, "");
   const isActive = parsedPathname === href;
 
   return (
