@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   output: "export", // Enables static export mode
   // basePath: "/jejeeeh.github.io",
   // assetPrefix: "/jejeeeh.github.io/",
-  trailingSlash: true, // Ensures URL ends with a slash (e.g., /about/ instead of /about)
+  // trailingSlash: true, // Ensures URL ends with a slash (e.g., /about/ instead of /about)
   images: {
     unoptimized: true, // Disables image optimization (necessary for static export)
   },

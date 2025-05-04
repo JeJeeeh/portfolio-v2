@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -20,9 +21,14 @@ export default function HeroSection() {
         <p>experience, from building intuitive user interfaces to</p>
         <p>developing scalable back-end systems.</p>
       </div>
-      <Button className="bg-transparent text-xs md:text-md" variant={"outline"}>
-        See Projects
-      </Button>
+      <Link href={"/projects"}>
+        <Button
+          className="bg-transparent text-xs md:text-base"
+          variant={"outline"}
+        >
+          See Projects
+        </Button>
+      </Link>
     </div>
   );
 }

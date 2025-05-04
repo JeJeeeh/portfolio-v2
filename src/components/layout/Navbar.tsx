@@ -72,6 +72,12 @@ export default function Navbar() {
     };
   }, [hamburgerVisible]);
 
+  useEffect(() => {
+    if (hamburgerVisible) {
+      setHamburgerVisible(false);
+    }
+  }, [pathname]);
+
   return (
     <>
       <nav
