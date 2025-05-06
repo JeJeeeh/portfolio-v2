@@ -13,7 +13,7 @@ export default function ResumeHeaderSection() {
       body: "I specialize in crafting interactive and accessible user interfaces while building scalable and efficient server applications. I focus on writing clean, maintainable code that ensure performance and long-term sustainability. I enjoy collaboration where we work together to turn ideas into reality.",
     },
     {
-      title: "Strenghts",
+      title: "Strengths",
       body: "My strengths lie in my problem-solving mindset, keen attention to detail, and passion for writing clean, maintainable code. I’m always eager to learn and grow, staying up to date with the latest technologies and best practices.",
     },
   ];
