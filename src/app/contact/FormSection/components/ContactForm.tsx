@@ -40,7 +40,7 @@ export default function ContactForm() {
     // Construct the mailto link
     const newSubject = `${subject} - ${name}`;
     const body = encodeURIComponent(`${message}`);
-    const mailtoLink = `mailto:your-email@example.com?subject=${newSubject}&body=${body}`;
+    const mailtoLink = `mailto:jasonjonathaneffendi@gmail.com?subject=${newSubject}&body=${body}`;
 
     // Open the user's email client
     window.location.href = mailtoLink;
