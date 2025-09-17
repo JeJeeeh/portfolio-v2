@@ -9,7 +9,7 @@ export default function ResumeSecondary({
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = "/cv/CV.pdf";
-    link.download = "Jason Jonathan Effendi.pdf";
+    link.download = "CV Jason Jonathan Effendi.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
